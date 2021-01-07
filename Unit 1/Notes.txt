@@ -1,0 +1,18 @@
+OBJECT ORIENTED PROGRAMMING (OOP)
+    Object oriented programming is a way of coding that allows you to create objects with properties that are cloned when you reference that object, so you don't have to type something over and over.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+OOP Vocab:
+    Encaspulation
+        - The ability to store information inside of an object so that it is only visible to the object.
+        Ex. interal computer components, gift in a box
+    Abstraction
+        - Hiding the internal mechanisms behind a simple interface.
+        Ex. cable management, simple font
+    Inheritance
+        - Basing one object off another in order to retain similar implementation or properties.
+        Ex. 
+    Polymorphism
+        - The ability to perform the same action in different ways (i.e. run() can be 2 legs or 4 legs).
+        Ex. 

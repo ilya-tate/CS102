@@ -1023,6 +1023,9 @@ function totalPaperArea() {
     for(let i = 0; i < arr.length; i++) {
         let arrCell = arr[i].split('x');
         arrCell.sort((a, b) => a - b);
+        for (let j = 0; j < arrCell.length; j++) {
+            arrCell[j] = +(arrCell[j]);
+        }
         totalPaperArea += ((2 * arrCell[0] + arrCell[2]) * (2 * arrCell[1] + 2 * arrCell[0]));
     }
 
@@ -1036,6 +1039,9 @@ function totalLength() {
     for(let i = 0; i < arr.length; i++) {
         let arrCell = arr[i].split('x');
         arrCell.sort((a, b) => a - b);
+        for (let j = 0; j < arrCell.length; j++) {
+            arrCell[j] = +(arrCell[j]);
+        }
         let dimensionsA = 2 * arrCell[0] + arrCell[2];
         let dimensionsB = 2 * arrCell[1] + 2 * arrCell[0];
         if(dimensionsA >= dimensionsB) {
