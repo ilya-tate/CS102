@@ -38,101 +38,101 @@
 
 // // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-let name = `Vihaan Wu
-Jia Le
-Ember Joyner
-Spencer Romero
-Priya George
-Kadie Thatcher
-Anayah Irving
-Domas Rose
-Iris Hancock
-Beulah Osborn
-Nile Ellis
-Hina Redfern
-Maliha Marsh
-Areeb Rubio
-Bjorn Mcneil
-Kyran Dalton
-Laurence Singh
-Zion Mata
-Greg Schultz
-Cillian Pearson
-Darien Hilton
-Joe Wicks
-Nicky Harrison
-Laylah Leal
-Bertha Dickinson
-Amar Winter
-Horace Keith
-Lillie-Rose Pike
-Zeeshan Acosta
-Sachin Mckee
-Emilee Mcintosh
-Yvonne Craft
-Scarlette Bowen
-Jadon Horn
-Safwan Haney
-Laurie Stacey
-Blane Cleveland
-Keiren Bloggs
-Cayson Morse
-Nusaybah Gentry
-Maheen Macdonald
-Inigo Riddle
-Sufyaan Hartman
-Jeff Fletcher
-Kaya Doyle
-Yehuda Rice
-Whitney Washington
-Roma Robertson
-Kiaan Kerr
-Rosalind Franco`;
+// let name = `Vihaan Wu
+// Jia Le
+// Ember Joyner
+// Spencer Romero
+// Priya George
+// Kadie Thatcher
+// Anayah Irving
+// Domas Rose
+// Iris Hancock
+// Beulah Osborn
+// Nile Ellis
+// Hina Redfern
+// Maliha Marsh
+// Areeb Rubio
+// Bjorn Mcneil
+// Kyran Dalton
+// Laurence Singh
+// Zion Mata
+// Greg Schultz
+// Cillian Pearson
+// Darien Hilton
+// Joe Wicks
+// Nicky Harrison
+// Laylah Leal
+// Bertha Dickinson
+// Amar Winter
+// Horace Keith
+// Lillie-Rose Pike
+// Zeeshan Acosta
+// Sachin Mckee
+// Emilee Mcintosh
+// Yvonne Craft
+// Scarlette Bowen
+// Jadon Horn
+// Safwan Haney
+// Laurie Stacey
+// Blane Cleveland
+// Keiren Bloggs
+// Cayson Morse
+// Nusaybah Gentry
+// Maheen Macdonald
+// Inigo Riddle
+// Sufyaan Hartman
+// Jeff Fletcher
+// Kaya Doyle
+// Yehuda Rice
+// Whitney Washington
+// Roma Robertson
+// Kiaan Kerr
+// Rosalind Franco`;
 
-let namesArray = name.split('\n');
+// let namesArray = name.split('\n');
 
-let typingSpeed = {}
+// let typingSpeed = {}
 
-function createList(array) {
-    for(let i = 0; i < array.length; i++) {
-        let name = array[i];
-        let speed = Math.floor(Math.random() * 30 + 40); // 40 - 70
-        typingSpeed[name] = speed;
-    }
-}
+// function createList(array) {
+//     for(let i = 0; i < array.length; i++) {
+//         let name = array[i];
+//         let speed = Math.floor(Math.random() * 30 + 40); // 40 - 70
+//         typingSpeed[name] = speed;
+//     }
+// }
 
-createList(namesArray);
-console.log(typingSpeed);
+// createList(namesArray);
+// console.log(typingSpeed);
 
-let tvStatus = {}
+// let tvStatus = {}
 
-function createTvObject(arrayObject) {
-    for(let i = 0; i < arrayObject.length; i++) {
-        let key = arrayObject[i];
-        let rng = Math.ceil(Math.random() * 3);
+// function createTvObject(arrayObject) {
+//     for(let i = 0; i < arrayObject.length; i++) {
+//         let key = arrayObject[i];
+//         let rng = Math.ceil(Math.random() * 3);
 
-        if(rng == 1) {
-            let val = 'off';
-        } else {
-            let val = Math.ceil(Math.random() * 99);
-        }
+//         if(rng == 1) {
+//             let val = 'off';
+//         } else {
+//             let val = Math.ceil(Math.random() * 99);
+//         }
 
-        tvStatus[key] = val;
-    }
-}
+//         tvStatus[key] = val;
+//     }
+// }
 
-createTvObject(namesArray);
-console.log(tvStatus);
+// createTvObject(namesArray);
+// console.log(tvStatus);
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Create an object that will say the income of people you employ
-// 100 names
-//: 'intern' 10%
-//: '10000 - 20000' 30%
-//: '30000 - 59999' 50%
-//: '80000 - 120000' 10%
-//: 1 person CEO: 250000
+/* Create an object that will say the income of people you employ
+100 names
+: 'intern' 10%
+: '10000 - 20000' 30%
+: '30000 - 59999' 50%
+: '80000 - 120000' 10%
+: 1 person CEO: 250000 */
 
 "use strict";
 
