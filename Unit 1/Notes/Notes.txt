@@ -129,3 +129,54 @@ Objects and Object Based Programming:
         '5': 4,
         '10': 3
         */
+    Object Referencing
+        - When you have a variable and your copy that variable into a new name then the value is copied and restored.
+        - Objects instead only copy the reference address to where the value is being stored.
+        - Therefore if your two objects are pointing to the smae vlaue, modifying one will modify both of them.
+    Variable Referencing
+        Ex.
+        let first = 20;
+        let second = first;
+        first = 10;
+        console.log(first); // 10
+        console.log(second); // 20
+    Object Referencing
+        Ex.
+        let first = (cash: 20);
+        let second = first;
+        first.cash = 10;
+        console.log(first.cash); // 10
+        console.log(second.cash); // 10
+    Object Cloning
+        - I have shown you before how to create a new obect using a function, but now I will show you how to clone and object like we do with a variable.
+        - This is tricky since normally when we assign an object to and object we create a dependent clone.
+    Object.assign
+        - You can place any object into another creating a brand new independent object by using 'Object.assign'.
+        Ex.
+        Object.assign(destination, source1, source2, moreSources);
+    Object Methods
+        - We don't just have to add variables and objects to other objects, but we can also add functions.
+        - When a function expression is added to an object as a property we call this a method.
+    Methods
+        Ex.
+        user = {
+            sayHi: function() {
+                alert('Hello');
+            }
+        };
+        user.sayHi(); // 'Hello'
+        // User is and object and sayHi is the key associated with the function that will say hello.
+    Method Shorthand
+        Ex.
+        // Same as "sayHi: function()"
+        user = {
+            sayHi() {
+                alert('Hello');
+            }
+        };
+        // This is the same as the last slide but written in shorthand.
+        // Either way is fine, use the one that makes the most sense to you.
+    this.Method
+        - When using methods in an object it is usually required to use some value from inside of the object.
+        - Since the object can be cloned or the method can be moved to another it's best to tell the method to use whatever object the method is in.
+        - We do that with "this.key".

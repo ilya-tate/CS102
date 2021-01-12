@@ -36,7 +36,7 @@
 //     diet: 'seal'
 // };
 
-// // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 // let name = `Vihaan Wu
 // Jia Le
@@ -124,7 +124,7 @@
 // createTvObject(namesArray);
 // console.log(tvStatus);
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 /* Create an object that will say the income of people you employ
 100 names
@@ -134,144 +134,201 @@
 : '80000 - 120000' 10%
 : 1 person CEO: 250000 */
 
-"use strict";
+// let names = `Anniyah Spence
+// Sumaiya Cannon
+// Nora Oneill
+// Rubie Talbot
+// Isaiah Blackwell
+// Freya Copeland
+// Kalem Robins
+// Asha Mcintosh
+// Zubair Byrd
+// Lucas Plummer
+// Mayur Buchanan
+// Lyndsey Waller
+// Abdallah Plant
+// Sania Power
+// Koby Wiley
+// Stefano Dickerson
+// Asma Armstrong
+// Addie Contreras
+// Jack Riddle
+// Layla-Mae Hutchings
+// Shelly Blankenship
+// Emrys Bush
+// Bhavik Maldonado
+// Tea Sexton
+// Hana Ponce
+// Aimie Squires
+// Georga Smith
+// Eliza Adamson
+// Zi Sellers
+// Lilliana Nairn
+// Marguerite Hibbert
+// Gregory Wilkes
+// Kianna Durham
+// Remy Flower
+// Makayla Mccormick
+// Lincoln Hughes
+// Lennon Burris
+// Milton Lowery
+// Tanner Hunter
+// Krishan Ritter
+// Kai Novak
+// Aisha Huang
+// Blanka Stein
+// Kareem Callaghan
+// Malak Cabrera
+// Raj Steadman
+// Lucca Doyle
+// Eshaal Bone
+// Demi-Lee Redfern
+// Shanon Davey
+// Yvie Hills
+// Anayah Mcphee
+// Vickie Miles
+// Korben Escobar
+// Kaylan Baird
+// Shelby Humphreys
+// Montana Dawson
+// Joanna Kavanagh
+// Rodrigo Juarez
+// Mya Prentice
+// Victor Espinosa
+// Rory Appleton
+// Yusuf Rosas
+// Beck Jensen
+// Pamela Olsen
+// Virginia Connolly
+// Aubrey Elliott
+// Bree Dixon
+// Peter Cousins
+// Marie Harrison
+// Faraz Alston
+// Vincent Mcconnell
+// Lynsey Bravo
+// Umayr Christie
+// Aila Tucker
+// Roshni Harris
+// Macauley Drake
+// Eloisa Mcdowell
+// Shana Findlay
+// Ehsan Devine
+// Princess Hudson
+// Adriana Harvey
+// Kymani Parry
+// Savanna Nelson
+// Kiki Wolfe
+// Zakaria Padilla
+// Tamia Archer
+// Damien Huff
+// Herbie Mckenna
+// Dario Cooke
+// Nicola Faulkner
+// Sanjay Blair
+// Ayden Gunn
+// Myla Mcdaniel
+// Gabriela Lloyd
+// Caden Millar
+// Cora Joyce
+// Eugene Knox
+// Ann-Marie Morris
+// Tasha Evans`;
+
+// let ceoExists = false;
+
+// let namesArray = names.split('\n');
+
+// let income = {}
+
+// function createIncomeObject(array) {
+//     for(let i = 0; i < array.length; i++) {
+//         let rng;
+//         let val;
+//         let key = array[i];
+
+//         if (i == array.length - 1) {
+//             rng = 0
+//         } else {
+//             rng = Math.ceil(Math.random() * 101);
+//         }
 
 
-let names = `Anniyah Spence
-Sumaiya Cannon
-Nora Oneill
-Rubie Talbot
-Isaiah Blackwell
-Freya Copeland
-Kalem Robins
-Asha Mcintosh
-Zubair Byrd
-Lucas Plummer
-Mayur Buchanan
-Lyndsey Waller
-Abdallah Plant
-Sania Power
-Koby Wiley
-Stefano Dickerson
-Asma Armstrong
-Addie Contreras
-Jack Riddle
-Layla-Mae Hutchings
-Shelly Blankenship
-Emrys Bush
-Bhavik Maldonado
-Tea Sexton
-Hana Ponce
-Aimie Squires
-Georga Smith
-Eliza Adamson
-Zi Sellers
-Lilliana Nairn
-Marguerite Hibbert
-Gregory Wilkes
-Kianna Durham
-Remy Flower
-Makayla Mccormick
-Lincoln Hughes
-Lennon Burris
-Milton Lowery
-Tanner Hunter
-Krishan Ritter
-Kai Novak
-Aisha Huang
-Blanka Stein
-Kareem Callaghan
-Malak Cabrera
-Raj Steadman
-Lucca Doyle
-Eshaal Bone
-Demi-Lee Redfern
-Shanon Davey
-Yvie Hills
-Anayah Mcphee
-Vickie Miles
-Korben Escobar
-Kaylan Baird
-Shelby Humphreys
-Montana Dawson
-Joanna Kavanagh
-Rodrigo Juarez
-Mya Prentice
-Victor Espinosa
-Rory Appleton
-Yusuf Rosas
-Beck Jensen
-Pamela Olsen
-Virginia Connolly
-Aubrey Elliott
-Bree Dixon
-Peter Cousins
-Marie Harrison
-Faraz Alston
-Vincent Mcconnell
-Lynsey Bravo
-Umayr Christie
-Aila Tucker
-Roshni Harris
-Macauley Drake
-Eloisa Mcdowell
-Shana Findlay
-Ehsan Devine
-Princess Hudson
-Adriana Harvey
-Kymani Parry
-Savanna Nelson
-Kiki Wolfe
-Zakaria Padilla
-Tamia Archer
-Damien Huff
-Herbie Mckenna
-Dario Cooke
-Nicola Faulkner
-Sanjay Blair
-Ayden Gunn
-Myla Mcdaniel
-Gabriela Lloyd
-Caden Millar
-Cora Joyce
-Eugene Knox
-Ann-Marie Morris
-Tasha Evans`;
+//         if (rng > 90) {
+//             val = Math.floor(Math.random() * 40000 + 80000);
+//         } else if (rng > 40 && rng <= 90) {
+//             val = Math.floor(Math.random() * 29999 + 30000);
+//         } else if (rng > 10 && rng <= 40) {
+//             val = Math.floor(Math.random() * 10000 + 10000);
+//         } else if (rng > 0 && rng <= 10) {
+//             val = 'intern';
+//         } else if (rng == 0) {
+//             val = 250000;
+//         }
 
-let ceoExists = false;
+//         income[key] = val;
+//     }
+// }
 
-let namesArray = names.split('\n');
+// createIncomeObject(namesArray);
+// console.log(income);
 
-let income = {}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function createIncomeObject(array) {
-    for (let i = 0; i < array.length; i++) {
-        let rng;
-        let val;
-        let key = array[i];
+// let employees = 0;
+// let ceo = '';
+// for(let key in income) {
+//     if(income[key] != 'intern' && income[key] != 250000) {
+//         income[key] -= 5000;
+//         employees++;
+//     }
 
-        if (i == 0) {
-            rng = 0
-        } else {
-            rng = Math.ceil(Math.random() * 101);
-        }
+//     if(income[key] == 250000) {
+//         ceo = key;
+//     }
+// }
+// income[ceo] += 5000 * employees;
+
+// console.log(income);
+// console.log(`${ceo} is making $${income[ceo]} anually.`);
 
 
-        if (rng > 90) {
-            val = Math.floor(Math.random() * 40000 + 80000);
-        } else if (rng > 40 && rng <= 90) {
-            val = Math.floor(Math.random() * 29999 + 30000);
-        } else if (rng > 10 && rng <= 40) {
-            val = Math.floor(Math.random() * 10000 + 10000);
-        } else if (rng > 0 && rng <= 10) {
-            val = 'intern';
-        } else if (rng == 0) {
-            val = 250000;
-        }
+// // Take 1/2 of everyones money, but the CEO, and give it equally to all of the interns
 
-        income[key] = val;
+// let pool = 0;
+// let internAmt = 0;
+// for(let key in income) {
+//     if(income[key] != 'intern' && income[key] != 250000) {
+//         pool += income[key] / 2;
+//         income[key] = Math.round(income[key] / 2);
+//     } else if(income[key] == 'intern') {
+//         internAmt++;
+//     }
+// }
+// let distributedMoney = Math.round(pool / internAmt);
+
+// for(let key in income) {
+//     if (income[key] == 'intern') {
+//         income[key] = distributedMoney;
+//     }
+// }
+
+// console.log(income);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+let user = {
+    name: "Jessie",
+    sayHi: function() {
+        console.log(`Hello ${this.name}`);
     }
-}
+};
 
-createIncomeObject(namesArray);
-console.log(income);
+let newUser = {};
+
+Object.assign(newUser, user);
+
+newUser.name = "Jimmy";
+
+user.sayHi();
+newUser.sayHi();
