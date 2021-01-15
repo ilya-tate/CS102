@@ -1,7 +1,6 @@
 OBJECT ORIENTED PROGRAMMING (OOP)
     Object oriented programming is a way of coding that allows you to create objects with properties that are cloned when you reference that object, so you don't have to type something over and over.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 OOP Vocab:
     Encaspulation
@@ -180,3 +179,56 @@ Objects and Object Based Programming:
         - When using methods in an object it is usually required to use some value from inside of the object.
         - Since the object can be cloned or the method can be moved to another it's best to tell the method to use whatever object the method is in.
         - We do that with "this.key".
+    Constructor Functions
+        - A constructor function is a normal function that is used to create an object as many times as we want.
+        Ex.
+        function User(name, id) {
+            this.name = name;
+            this.id = id;
+            this.admin = false;
+        }
+        -There are two conventions that make constructor functions stand out from a regular function.
+            They have a capital first letter.
+            They are obly executed with the "new" operator.
+    Using the "new" Operator
+        - From the constructor function we made earlier we can now create any user object we want.
+        Ex.
+        let tommy = new User('Tom', 12345);
+        console.log(tommy.name); // 'Tom'
+        console.log(tommy.id); // 12345
+        console.log(tommy.admin); // false
+
+Classes and Class Syntax:
+    What is a class?
+        - A class is essentially a function that provides better uses for constructing objects with values and methods.
+    Proper "class" Syntax
+        Ex.
+        class MyClass {
+            constructor() {
+                // Defualt values
+            }
+            method1() {}
+            method2() {}
+            method3() {}
+        }
+        - Just as before the names of the constructor functions (the class) should start with a capital letter.
+        - For a class the first method that you create should be the "constructor" method.
+    Constructor Method
+        - The constructor method is the first function called when creating an object with the "new" keyword.
+        - If you do not define the constructor method it will still happen, but it will be an empty method.
+        Ex.
+        class Student {
+            constructor(name, id, gradeLevel) {
+                this.name = name;
+                this.id = id;
+                this.gradeLevel = gradeLevel;
+                this.perm = 'Student';
+            }
+            checkPerm() {
+                console.log(`The permission is ${this.perm}`);
+            }
+        }
+    Getter and Setter Properties
+        - You can add "get" to any of your methods to make sure that they can not be used to change a value.
+        - You can use "set" if you want to create a method that is only used to update values.
+        - The benefit of these is that they stop users/coders from using the methods incorrectly.
