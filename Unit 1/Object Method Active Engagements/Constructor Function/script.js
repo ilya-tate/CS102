@@ -160,11 +160,15 @@ function error() {
     }
 }
 
+console.log("Username: Ilya123");
+console.log("Password: abc123");
+
 function submit() {
     let user = new User();
 
-    user.setUsername = document.getElementById("username").value;
-    user.setPassword = document.getElementById("password").value;
+    user.setUsername = 'Ilya123'; // Username set to 'Ilya123'
+    user.setPassword = 'abc123'; // Password set to 'abc123'
 
-    user.login('Ilya123', 'abc123')
+    user.login(document.getElementById("username").value, document.getElementById("password").value);
+    // HTML only checks if the login is correct according to "user.setUsername = 'Ilya123'" and "user.setPassword = 'abc123'"
 }
