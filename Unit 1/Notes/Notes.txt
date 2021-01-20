@@ -271,4 +271,4 @@ Classes and Class Syntax:
             Date, starts at 1
                 If left blank, it is assumed 1
             Hours, minutes, seconds, ms
-                All start at 0 and if they are left blank it is assumed 0
+                All start at 0 and if they are left blank it is assumed 0efau
