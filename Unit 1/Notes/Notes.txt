@@ -271,4 +271,31 @@ Classes and Class Syntax:
             Date, starts at 1
                 If left blank, it is assumed 1
             Hours, minutes, seconds, ms
-                All start at 0 and if they are left blank it is assumed 0efau
+                All start at 0 and if they are left blank it is assumed
+    Date Methods
+        - getFullYear()
+            Get the year in 4 digits
+        - getMonth()
+            Get the month from 0 to 11, January is 0
+        - getDate()
+            Get the dat of the month from 1 to 31
+        - getHours, getMinutes, etc.
+        - getDay()
+            Will return the day of the week 0(sun) to 6(sat)
+    Setting Date Components
+        - You can also use all of the same methods with set instead.
+    Auto Correcting
+        - The date object also auto corrects errors for you
+        Ex.
+        let date = new Date(2013, 0, 23); // 23 Jan 2013 ?!?
+        alert(date); // ...is 1st Feb 2013!
+        - This is often used to find a time that is x minutes from the old time.
+        Ex.
+        let date = new Date();
+        data.setSeconds(date.getSeconds() + 70);
+        alert(date); // Shows the correct date
+    Date.now()
+        - Date.now()
+        - This shows the current time on the device that you are using.
+        - This is the saem as saying new Date().getTIme() but saves your computer from creating a new date object.
+    
