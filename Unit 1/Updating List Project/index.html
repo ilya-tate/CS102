@@ -18,13 +18,13 @@
 </head>
 
 <body>
-    <form action="" method="post">
-        <fieldset>
+    <!-- <form action="#" method="#">
+        <fieldset> -->
             <legend>* is a REQUIRED field</legend>
             <ul style="list-style-type: none;">
                 <li>
                     <label for="nameFirst">* First Name</label>
-                    <input type="text" id="nameFirst" name="name-last" required>
+                    <input type="text" id="nameFirst" name="name-first">
                 </li>
                 <br>
 
@@ -36,7 +36,7 @@
 
                 <li>
                     <label for="dob">* Date of Birth</label>
-                    <input type="date" id="dob" name="dob" value="mm-dd-yyyy" min="01-01-1920" max="12-31-2020" required>
+                    <input type="date" id="dob" name="dob" placeholder="dd-mm-yyyy" value="" min="1920-01-01" max="2020-12-31" required>
                 </li>
                 <br>
 
@@ -54,19 +54,19 @@
 
                 <li>
                     <label for="dateLeave">* Date Leaving</label>
-                    <input type="date" id="dateLeave" name="date-leave" value="mm-dd-yyyy" min="01-01-2020" max="12-31-3000" required>
+                    <input type="date" id="dateLeave" name="date-leave" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="dateReturn">* Date Returning</label>
-                    <input type="date" id="dateReturn" name="date-return" value="mm-dd-yyyy" min="01-01-2020" max="12-31-3000" required>
+                    <input type="date" id="dateReturn" name="date-return" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="bagNum">Number of Bags Brought</label>
-                    <input type="number" id="bagsBrought" name="bags-brought" value="0" min="0">
+                    <input type="number" id="bagNum" name="bags-number" value="0" min="0">
                 </li>
                 <br>
 
@@ -76,30 +76,30 @@
                     <label for="meal.chicken">Chicken</label>
                     <input type="radio" id="meal.fish" name="meal" value="fish">
                     <label for="meal.fish">Fish</label>
-                    <input type="radio" id="meal.vegetarian" name="meal" value="vegetarian">
-                    <label for="meal.vegetarian">Vegetarian</label>
+                    <input type="radio" id="meal.vege" name="meal" value="vegetarian">
+                    <label for="meal.vege">Vegetarian</label>
                 </li>
                 <br>
 
                 <li>
                     <p>Extras</p>
-                    <input type="checkbox" id="extra.legroom" name="extra" value="legroom">
-                    <label for="extra.legroom">Legroom</label>
-                    <input type="checkbox" id="extra.window" name="extra" value="window">
-                    <label for="extra.window">Window Seat</label>
-                    <input type="checkbox" id="extra.headphones" name="extra" value="headphones">
-                    <label for="extra.headphones">Headphones</label>
-                    <input type="checkbox" id="extra.food" name="extra" value="food">
-                    <label for="extra.food">Extra Food</label>
+                    <input type="checkbox" id="extras.legroom" name="extras" value="legroom">
+                    <label for="extras.legroom">Legroom</label>
+                    <input type="checkbox" id="extras.window" name="extras" value="window">
+                    <label for="extras.window">Window Seat</label>
+                    <input type="checkbox" id="extras.headphones" name="extras" value="headphones">
+                    <label for="extras.headphones">Headphones</label>
+                    <input type="checkbox" id="extras.food" name="extras" value="food">
+                    <label for="extras.food">Extra Food</label>
                 </li>
                 <br>
 
                 <li>
-                    <input type="submit" value="Submit" onclick="submit()">
+                    <button onclick="submit()">Submit</button>
                 </li>
             </ul>
-        </fieldset>
-    </form>
+        <!-- </fieldset>
+    </form> -->
 
     <script src="script.js"></script>
 </body>
