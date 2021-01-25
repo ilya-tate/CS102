@@ -17,50 +17,50 @@
     <link rel="shortcut icon" href="" type="image/x-icon">
 </head>
 
-<body>
+<body onload="generateUsers()">
     <!-- <form action="#" method="#">
         <fieldset> -->
             <legend>* is a REQUIRED field</legend>
             <ul style="list-style-type: none;">
                 <li>
                     <label for="nameFirst">* First Name</label>
-                    <input type="text" id="nameFirst" name="name-first">
+                    <input type="text" id="nameFirst" class="required" name="name-first">
                 </li>
                 <br>
 
                 <li>
                     <label for="nameLast">* Last Name</label>
-                    <input type="text" id="nameLast" name="name-last" required>
+                    <input type="text" id="nameLast" class="required" name="name-last" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="dob">* Date of Birth</label>
-                    <input type="date" id="dob" name="dob" placeholder="dd-mm-yyyy" value="" min="1920-01-01" max="2020-12-31" required>
+                    <input type="date" id="dob" name="dob" class="required" placeholder="dd-mm-yyyy" value="" min="1920-01-01" max="2020-12-31" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="cityDepart">* Departing City</label>
-                    <input type="text" id="cityDepart" name="city-departure" required>
+                    <input type="text" id="cityDepart" class="required" name="city-departure" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="cityDestin">* Destination City</label>
-                    <input type="text" id="cityDestin" name="city-destination" required>
+                    <input type="text" id="cityDestin" class="required" name="city-destination" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="dateLeave">* Date Leaving</label>
-                    <input type="date" id="dateLeave" name="date-leave" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
+                    <input type="date" id="dateLeave" class="required" name="date-leave" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
                 </li>
                 <br>
 
                 <li>
                     <label for="dateReturn">* Date Returning</label>
-                    <input type="date" id="dateReturn" name="date-return" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
+                    <input type="date" id="dateReturn" class="required" name="date-return" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
                 </li>
                 <br>
 
