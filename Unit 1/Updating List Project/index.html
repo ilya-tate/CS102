@@ -17,89 +17,97 @@
     <link rel="shortcut icon" href="" type="image/x-icon">
 </head>
 
-<body onload="generateUsers()">
-    <!-- <form action="#" method="#">
-        <fieldset> -->
-            <legend>* is a REQUIRED field</legend>
-            <ul style="list-style-type: none;">
-                <li>
-                    <label for="nameFirst">* First Name</label>
-                    <input type="text" id="nameFirst" class="required" name="name-first">
-                </li>
-                <br>
+<body onload="gernerateRandomUser(3)">
+    <form>
+        <legend>* is a REQUIRED field</legend>
+        <ul style="list-style-type: none;">
+            <li>
+                <label for="nameFirst">* First Name</label>
+                <input type="text" id="nameFirst" class="required" name="name-first">
+            </li>
+            <br>
 
-                <li>
-                    <label for="nameLast">* Last Name</label>
-                    <input type="text" id="nameLast" class="required" name="name-last" required>
-                </li>
-                <br>
+            <li>
+                <label for="nameLast">* Last Name</label>
+                <input type="text" id="nameLast" class="required" name="name-last" required>
+            </li>
+            <br>
 
-                <li>
-                    <label for="dob">* Date of Birth</label>
-                    <input type="date" id="dob" name="dob" class="required" placeholder="dd-mm-yyyy" value="" min="1920-01-01" max="2020-12-31" required>
-                </li>
-                <br>
+            <li>
+                <label for="dob">* Date of Birth</label>
+                <input type="date" id="dob" name="dob" class="required" placeholder="dd-mm-yyyy" value="" min="1920-01-01" max="2020-12-31" required>
+            </li>
+            <br>
 
-                <li>
-                    <label for="cityDepart">* Departing City</label>
-                    <input type="text" id="cityDepart" class="required" name="city-departure" required>
-                </li>
-                <br>
+            <li>
+                <label for="cityDepart">* Departing City</label>
+                <input type="text" id="cityDepart" class="required" name="city-departure" required>
+            </li>
+            <br>
 
-                <li>
-                    <label for="cityDestin">* Destination City</label>
-                    <input type="text" id="cityDestin" class="required" name="city-destination" required>
-                </li>
-                <br>
+            <li>
+                <label for="cityDestin">* Destination City</label>
+                <input type="text" id="cityDestin" class="required" name="city-destination" required>
+            </li>
+            <br>
 
-                <li>
-                    <label for="dateLeave">* Date Leaving</label>
-                    <input type="date" id="dateLeave" class="required" name="date-leave" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
-                </li>
-                <br>
+            <li>
+                <label for="dateLeave">* Date Leaving</label>
+                <input type="date" id="dateLeave" class="required" name="date-leave" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
+            </li>
+            <br>
 
-                <li>
-                    <label for="dateReturn">* Date Returning</label>
-                    <input type="date" id="dateReturn" class="required" name="date-return" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
-                </li>
-                <br>
+            <li>
+                <label for="dateReturn">* Date Returning</label>
+                <input type="date" id="dateReturn" class="required" name="date-return" placeholder="dd-mm-yyyy" value="" min="2020-01-01" max="3000-12-31" required>
+            </li>
+            <br>
 
-                <li>
-                    <label for="bagNum">Number of Bags Brought</label>
-                    <input type="number" id="bagNum" name="bags-number" value="0" min="0">
-                </li>
-                <br>
+            <li>
+                <label for="bagNum">Number of Bags Brought</label>
+                <input type="number" id="bagNum" name="bags-number" value="0" min="0">
+            </li>
+            <br>
 
-                <li>
-                    <p>Type of Meal</p>
-                    <input type="radio" id="meal.chicken" name="meal" value="chicken">
-                    <label for="meal.chicken">Chicken</label>
-                    <input type="radio" id="meal.fish" name="meal" value="fish">
-                    <label for="meal.fish">Fish</label>
-                    <input type="radio" id="meal.vege" name="meal" value="vegetarian">
-                    <label for="meal.vege">Vegetarian</label>
-                </li>
-                <br>
+            <li>
+                <p>Type of Meal</p>
+                <input type="radio" id="meal.chicken" name="meal" value="chicken">
+                <label for="meal.chicken">Chicken</label>
+                <input type="radio" id="meal.fish" name="meal" value="fish">
+                <label for="meal.fish">Fish</label>
+                <input type="radio" id="meal.vege" name="meal" value="vegetarian">
+                <label for="meal.vege">Vegetarian</label>
+            </li>
+            <br>
 
-                <li>
-                    <p>Extras</p>
-                    <input type="checkbox" id="extras.legroom" name="extras" value="legroom">
-                    <label for="extras.legroom">Legroom</label>
-                    <input type="checkbox" id="extras.window" name="extras" value="window">
-                    <label for="extras.window">Window Seat</label>
-                    <input type="checkbox" id="extras.headphones" name="extras" value="headphones">
-                    <label for="extras.headphones">Headphones</label>
-                    <input type="checkbox" id="extras.food" name="extras" value="food">
-                    <label for="extras.food">Extra Food</label>
-                </li>
-                <br>
+            <li>
+                <p>Extras</p>
+                <input type="checkbox" id="extras.legroom" name="extras" value="legroom">
+                <label for="extras.legroom">Legroom</label>
+                <input type="checkbox" id="extras.window" name="extras" value="window">
+                <label for="extras.window">Window Seat</label>
+                <input type="checkbox" id="extras.headphones" name="extras" value="headphones">
+                <label for="extras.headphones">Headphones</label>
+                <input type="checkbox" id="extras.food" name="extras" value="food">
+                <label for="extras.food">Extra Food</label>
+            </li>
+            <br>
 
-                <li>
-                    <button onclick="submit()">Submit</button>
-                </li>
-            </ul>
-        <!-- </fieldset>
-    </form> -->
+            <li>
+                <button onclick="submit()">Submit</button>
+            </li>
+        </ul>
+    </form>
+    <br>
+    <br>
+
+<div class="search-area">
+    <button onclick="search()">Search</button>
+    <div>
+        <span id="output"></span>
+    </div>
+</div>
+
 
     <script src="script.js"></script>
 </body>
