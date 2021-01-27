@@ -1,9 +1,9 @@
 "use strict";
 
 
-let passengers = [];
+let passengersArr = [];
 
-class Passegers {
+class Passenger {
     constructor(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id) {
         this.nameFirst = nameFirst;
         this.nameLast = nameLast;
@@ -71,15 +71,18 @@ function submit() {
         extras = null;
     }
 
-    let id = 123456;
-    // let id = assignId();
+    let id = assignId();
     let canDrink = checkCanDrink(dob);
     let timeLeft = findTimeLeft(dateLeave, dateReturn)
 
-    passengers.push(`${id}: ${nameLast}, ${nameFirst}`);
+    passengersArr.push(`${id}: ${nameLast}, ${nameFirst}`);
 
     var user = new Passegers(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
     console.log(user);
+
+    generateRandomUser();
+    generateRandomUser();
+    generateRandomUser();
 }
 
 function checkCanDrink(dob) {
@@ -124,7 +127,7 @@ function assignId() {
     for(let i = 0; i < 6; i++) {
         id += rng(9);
     }
-    return +(id);
+    return +id;
 }
 
 function rng(max) {
@@ -345,37 +348,35 @@ function generateCity() {
     return city[1];
 }
 
-function randomDate(earliestY, latestY) {
-    let day = rng(30) + 1;
-    let mon = rng(11) + 1;
-    let year;
-    do {
-        year = (rng(latestY));
-    } while(year < earliestY);
+function randomDate(earliestDate, latestDate) {
+    let yr = rng(latestDate.getFullYear() - earliestDate.getFullYear()) + earliestDate.getFullYear();
+    let mon = rng(latestDate.getMonth() - earliestDate.getMonth()) + earliestDate.getMonth();
+    let day = rng(latestDate.getDate() - earliestDate.getDate()) + earliestDate.getDate();
 
-    return new Date(`${year}-${mon}-${day}`);
+    return new Date(yr, mon, day)
 }
 
 let randomUserAmt = 0;
 function generateRandomUser() {
+    let today = new Date()
+
     let name = generateName();
     let nameFirst = name[0];
     let nameLast = name[1];
 
-    let dob = randomDate(1920, (new Date()).getFullYear);
+    let earliestDate = new Date('1920-01-01')
+    let dob = randomDate(earliestDate, today);
 
     let cityDepart = generateCity();
     let cityDestin = generateCity();
 
-    let dateLeave = user.dateDepart;
-    let dateReturn = randomDate((new Date()).getFullYear, (new Date()).getFullYear() + 1);
-    do {
-        dateReturn = randomDate((new Date()).getFullYear, (new Date()).getFullYear() + 1);
-    } while(checkDates(dateLeave, dateReturn) == false);
+    let dateDepart = new Date(document.getElementById("dateLeave").value);
+    let latestDate = new Date(2022, 31, 12)
+    let dateReturn = randomDate(dateDepart, latestDate);
 
-    bagNum = rng(4);
+    let bagNum = rng(4);
 
-    let meal = [document.getElementById("meal.chicken").value, document.getElementById("mea.fish").value, document.getElementById("meal.vege").value];
+    let meal = ['chicken', 'fish', 'vegetarian'];
     meal = meal[rng(2)];
 
     let extrasOpt = [document.getElementById("extras.legroom").value, document.getElementById("extras.window").value, document.getElementById("extras.headphones").value, document.getElementById("extras.food").value];
@@ -395,17 +396,20 @@ function generateRandomUser() {
     let id = assignId();
 
     if(randomUserAmt == 0) {
-        var randomUserOne = new User(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        var randomUserOne = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        console.log(randomUserOne);
         randomUserAmt++;
     } else if(randomUserAmt == 1) {
-        var randomUserTwo = new User(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        var randomUserTwo = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        console.log(randomUserTwo);
         randomUserAmt++;
     } else if(randomUserAmt == 2) {
-        var randomUserThree = new User(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        var randomUserThree = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        console.log(randomUserThree);
         randomUserAmt++;
     }
 
-    passengers.push(`${id}: ${nameLast}, ${nameFirst}`);
+    passengersArr.push(`${id}: ${nameLast}, ${nameFirst}`);
 }
 
 // Checks if return date is greater than leave date
