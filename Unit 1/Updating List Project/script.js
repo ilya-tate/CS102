@@ -1,7 +1,8 @@
 "use strict";
 
 
-let passengersArr = [];
+let passengerArr = [];
+let passengerClassArr = [];
 
 class Passenger {
     constructor(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id) {
@@ -23,7 +24,7 @@ class Passenger {
 }
 
 function submit() {
-    if(document.getElementsByClassName("require").value == null) {
+    if(document.getElementsByClassName("required").value == null) {
         alert("Please fill out the required infromation.");
     }
 
@@ -75,14 +76,12 @@ function submit() {
     let canDrink = checkCanDrink(dob);
     let timeLeft = findTimeLeft(dateLeave, dateReturn)
 
-    Passenger.push(`${id} ${nameLast} ${nameFirst}`);
+    passengerArr.push(`${id} ${nameLast} ${nameFirst}`);
+    console.log(passengerArr);
 
-    let user = new Passegers(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+    let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+    passengerClassArr.push(user);
     console.log(user);
-
-    generateRandomUser();
-    generateRandomUser();
-    generateRandomUser();
 }
 
 function checkCanDrink(dob) {
@@ -116,9 +115,20 @@ function findTimeLeft(dateLeave, dateReturn) {
     let dateReturnM = dateReturn.getMonth();
     let dateReturnY = dateReturn.getFullYear();
 
+    
     let timeLeftD = dateReturnD - dateLeaveD;
     let timeLeftM = dateReturnM - dateLeaveM;
     let timeLeftY = dateReturnY - dateLeaveY;
+    if(timeLeftD.isNaN() == true) {
+        timeleftD = 0;
+    }
+    if (timeLeftM.isNaN() == true) {
+        timeleftM = 0;
+    }
+    if (timeLeftY.isNaN() == true) {
+        timeleftY = 0;
+    }
+
     return `${timeLeftY} Year(s), ${timeLeftM} Month(s), and ${timeLeftD} Day(s) gone`;
 }
 
@@ -342,13 +352,16 @@ function generateCity() {
 97,Fremont,California,224922,10.0%
 98,Boise City,Idaho,214237,9.5%
 99,Richmond,Virginia,214114,8.2%
-100,San Bernardino,California,213708,13.0%`;
+100,San Bernardino,California,213708,13.0%
+`;
     randomCities = randomCities.split('\n');
-    let city = randomCities[rng(randomCities.length) - 1].split(',');
-    return city[1];
+    let city = randomCities[rng(randomCities.length)].split(',');
+    return city;
 }
 
 function randomDate(earliestDate, latestDate) {
+    earliestDate = new Date(earliestDate);
+    latestDate = new Date(latestDate);
     let yr = rng(latestDate.getFullYear() - earliestDate.getFullYear()) + earliestDate.getFullYear();
     let mon = rng(latestDate.getMonth() - earliestDate.getMonth()) + earliestDate.getMonth();
     let day = rng(latestDate.getDate() - earliestDate.getDate()) + earliestDate.getDate();
@@ -392,9 +405,12 @@ function generateRandomUser(amt) {
 
         let id = assignId();
 
-        let user = new User(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        passengerClassArr.push(user);
+        console.log(user);
 
-        passengers.push(`${+id} ${nameLast} ${nameFirst}`);
+        passengerArr.push(`${+id} ${nameLast} ${nameFirst}`);
+        console.log(passengerArr);
     }
 }
 
@@ -416,29 +432,33 @@ function checkDates(dateLeave, dateReturn) {
 
 
 function search() {
-    let searchedUser = null;
+    let userInfo = '';
     let input = document.getElementById("search").value;
-    if(typeof(input) == Number) {
-        for(let i = 0; i < passengers.length; i++) {
-            let passengerArr = passengers[i].split(' ')
-            id = passengerArr[0];
-            if(input == id) {
-                searchedUser = `${passengerArr[0]}: ${passengerArr[1]}, ${passengerArr[2]}`;
-            }
-        }
-    } else {
-        for(let i = 0; i < passengers.length; i++) {
-            let passengerArr = passengers[i].split(' ');
-            name = passengerArr[1] + passengerArr[2];
-            if(input == name) {
-                searchedUser = `${passengerArr[0]}: ${passengerArr[1]}, ${passengerArr[2]}`;
-            }
+    for(let i = 0; i < passengerArr.length; i++) {
+        let thisPassengerArr = passengerArr[i].split(' ')
+        if (input == thisPassengerArr[0] || input == `${thisPassengerArr[2]} ${thisPassengerArr[1]}`) {
+            let thisPassengerClassArr = passengerClassArr[i];
+            console.log(thisPassengerClassArr);
+            let userId = `ID: ${thisPassengerClassArr.id}`;
+            let userNameFirst = `First Name: ${thisPassengerClassArr.nameFirst}`;
+            let userNameLast = `Last Name: ${thisPassengerClassArr.nameLast}`;
+            let userDob = `Date of Birth: ${thisPassengerClassArr.dob}`;
+            let userCityDepart = `Departing City: ${thisPassengerClassArr.cityDepart}`;
+            let userCityDestin = `Destination City: ${thisPassengerClassArr.cityDestin}`;
+            let userDateLeave = `Departing Date: ${thisPassengerClassArr.dateLeave}`;
+            let userDateReturn = `Returning Date: ${thisPassengerClassArr.dateReturn}`;
+            let userbagNum = `Number of Bags: ${thisPassengerClassArr.bagNum}`;
+            let userMeal = `Meal: ${thisPassengerClassArr.meal}`;
+            let userExtras = `Extra Options: ${thisPassengerClassArr.extras}`;
+            let userCanDrink = `Is Over 21: ${thisPassengerClassArr.canDrink}`;
+            let userExtraCost = `Extra Costs: ${thisPassengerClassArr.extraCost}`;
+            let userTimeLeft = `Amount of Time Gone: ${thisPassengerClassArr.timeLeft}`;
+            let userInfo = `${userId}<br>${userNameFirst}<br>${userNameLast}<br>${userDob}<br>${userCityDepart}<br>${userCityDestin}<br>${userDateLeave}<br>${userDateReturn}<br>${userbagNum}<br>${userMeal}<br>${userExtras}<br>${userCanDrink}<br>${userExtraCost}<br>${userTimeLeft}`
+            console.log(userInfo);
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+            output.innerHTML += `${userInfo}`;
+            break;
         }
     }
-
-    if(searchedUser == null) {
-        alert("User does not exist.");
-    }
-
-    document.getElementById("output").content = searchedUser;
 }

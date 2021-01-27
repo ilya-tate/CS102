@@ -17,8 +17,8 @@
     <link rel="shortcut icon" href="" type="image/x-icon">
 </head>
 
-<body onload="gernerateRandomUser(3)">
-    <form>
+<body onload="generateRandomUser(3)">
+    <div class="form">
         <legend>* is a REQUIRED field</legend>
         <ul style="list-style-type: none;">
             <li>
@@ -97,16 +97,17 @@
                 <button onclick="submit()">Submit</button>
             </li>
         </ul>
-    </form>
+    </div class="form">
+    <br>
+    <hr>
     <br>
     <br>
 
-<div class="search-area">
-    <button onclick="search()">Search</button>
-    <div>
-        <span id="output"></span>
+    <div class="search-area">
+        <input type="text" id="search" placeholder="First Last or ID">
+        <button onclick="search()">Search</button>
+        <div id="output"></div>
     </div>
-</div>
 
 
     <script src="script.js"></script>
