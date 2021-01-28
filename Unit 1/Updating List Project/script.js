@@ -74,7 +74,7 @@ function submit() {
 
     let id = assignId();
     let canDrink = checkCanDrink(dob);
-    let timeLeft = findTimeLeft(dateLeave, dateReturn)
+    let timeLeft = findTimeLeft(dateLeave, dateReturn);
 
     passengerArr.push(`${id} ${nameLast} ${nameFirst}`);
     console.log(passengerArr);
@@ -82,6 +82,56 @@ function submit() {
     let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
     passengerClassArr.push(user);
     console.log(user);
+}
+
+
+
+
+
+function search() {
+    let userInfo = '';
+    let input = document.getElementById("search").value;
+    for (let i = 0; i < passengerArr.length; i++) {
+        let thisPassengerArr = passengerArr[i].split(' ')
+        if (input == thisPassengerArr[0] || input == `${thisPassengerArr[2]} ${thisPassengerArr[1]}`) {
+            let thisPassengerClassArr = passengerClassArr[i];
+            console.log(thisPassengerClassArr);
+            let userId = `ID: ${thisPassengerClassArr.id}`;
+            let userNameFirst = `First Name: ${thisPassengerClassArr.nameFirst}`;
+            let userNameLast = `Last Name: ${thisPassengerClassArr.nameLast}`;
+            let userDob = `Date of Birth: ${thisPassengerClassArr.dob}`;
+            let userCityDepart = `Departing City: ${thisPassengerClassArr.cityDepart}`;
+            let userCityDestin = `Destination City: ${thisPassengerClassArr.cityDestin}`;
+            let userDateLeave = `Departing Date: ${thisPassengerClassArr.dateLeave}`;
+            let userDateReturn = `Returning Date: ${thisPassengerClassArr.dateReturn}`;
+            let userbagNum = `Number of Bags: ${thisPassengerClassArr.bagNum}`;
+            let userMeal = `Meal: ${thisPassengerClassArr.meal}`;
+            let userExtras = `Extra Options: ${thisPassengerClassArr.extras}`;
+            let userCanDrink = `Is Over 21: ${thisPassengerClassArr.canDrink}`;
+            let userExtraCost = `Extra Costs: ${thisPassengerClassArr.extraCost}`;
+            let userTimeLeft = `Amount of Time Gone: ${thisPassengerClassArr.timeLeft}`;
+            let userInfo = `${userId}<br>${userNameFirst}<br>${userNameLast}<br>${userDob}<br>${userCityDepart}<br>${userCityDestin}<br>${userDateLeave}<br>${userDateReturn}<br>${userbagNum}<br>${userMeal}<br>${userExtras}<br>${userCanDrink}<br>${userExtraCost}<br>${userTimeLeft}`
+            console.log(userInfo);
+            let output = document.getElementById("output");
+            output.innerHTML = "";
+            output.innerHTML += `${userInfo}`;
+            break;
+        }
+    }
+}
+
+
+function rng(max) {
+    max++;
+    return Math.floor(Math.random() * max);
+}
+
+function assignId() {
+    let id = '';
+    for (let i = 0; i < 6; i++) {
+        id += rng(9);
+    }
+    return +id;
 }
 
 function checkCanDrink(dob) {
@@ -95,7 +145,7 @@ function checkCanDrink(dob) {
     let dobM = dob.getMonth();
     let dobY = dob.getFullYear();
 
-    if(todayY - dobY > 21) {
+    if (todayY - dobY > 21) {
         return true;
     } else if (todayY - dobY == 21 && dobM >= todayM && dobD >= todayD) {
         return true;
@@ -105,46 +155,88 @@ function checkCanDrink(dob) {
 }
 
 function findTimeLeft(dateLeave, dateReturn) {
-    dateLeave = new Date(dateLeave);
+    if (dateLeave instanceof Date) {
+        dateLeave = new Date(dateLeave);
+    }
+    if (dateLeave instanceof Date) {
+        dateReturn = new Date(dateReturn);
+    }
+
     let dateLeaveD = dateLeave.getDate();
     let dateLeaveM = dateLeave.getMonth();
     let dateLeaveY = dateLeave.getFullYear();
 
-    dateReturn = new Date(dateReturn);
     let dateReturnD = dateReturn.getDate();
     let dateReturnM = dateReturn.getMonth();
     let dateReturnY = dateReturn.getFullYear();
 
-    
+
     let timeLeftD = dateReturnD - dateLeaveD;
     let timeLeftM = dateReturnM - dateLeaveM;
     let timeLeftY = dateReturnY - dateLeaveY;
-    if(timeLeftD.isNaN() == true) {
+    if (timeLeftD.isNaN == true) {
         timeleftD = 0;
     }
-    if (timeLeftM.isNaN() == true) {
+    if (timeLeftM.isNaN == true) {
         timeleftM = 0;
     }
-    if (timeLeftY.isNaN() == true) {
+    if (timeLeftY.isNaN == true) {
         timeleftY = 0;
     }
 
     return `${timeLeftY} Year(s), ${timeLeftM} Month(s), and ${timeLeftD} Day(s) gone`;
 }
 
-function assignId() {
-    let id = '';
-    for(let i = 0; i < 6; i++) {
-        id += rng(9);
+
+function generateRandomUser(amt) {
+    for(let i = 0; i < amt; i++) {
+        let name = generateName();
+        let nameFirst = name[0];
+        let nameLast = name[1];
+
+
+        let dob = randomDate(('1950-01-01'), (new Date()));
+
+        let cityDepart = generateCity();
+        let cityDestin = generateCity();
+
+        let latestDate = new Date('2021-12-30');
+        let dateLeave;
+        let dateReturn;
+        do {
+            dateLeave = randomDate((new Date()), latestDate);
+            dateReturn = randomDate(dateLeave, latestDate);
+        } while(dateLeave > dateReturn);
+
+        let bagNum = rng(4);
+
+        let meal = ['chicken', 'fish', 'vegetarian'];
+        meal = meal[rng(2)];
+
+        let extrasOpt = [document.getElementById("extras.legroom").value, document.getElementById("extras.window").value, document.getElementById("extras.headphones").value, document.getElementById("extras.food").value];
+        let extras = [];
+        for(let i = 0; i < extrasOpt.length; i++) {
+            if(rng(9) == 0) {
+                extras.push(extrasOpt[i]);
+            }
+        }
+
+        let canDrink = checkCanDrink(dob);
+
+        let extraCost = 300 + (bagNum * 20) + (extras.length * 10);
+
+        let timeLeft = findTimeLeft(dateLeave, dateReturn);
+
+        let id = assignId();
+
+        let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        passengerClassArr.push(user);
+        console.log(user);
+
+        passengerArr.push(`${+id} ${nameLast} ${nameFirst}`);
+        console.log(passengerArr);
     }
-    return +id;
 }
-
-function rng(max) {
-    max++;
-    return Math.floor(Math.random() * max);
-}
-
 
 function generateName() {
     let randomNames = `Brooklyn O'Doherty
@@ -363,102 +455,8 @@ function randomDate(earliestDate, latestDate) {
     earliestDate = new Date(earliestDate);
     latestDate = new Date(latestDate);
     let yr = rng(latestDate.getFullYear() - earliestDate.getFullYear()) + earliestDate.getFullYear();
-    let mon = rng(latestDate.getMonth() - earliestDate.getMonth()) + earliestDate.getMonth();
-    let day = rng(latestDate.getDate() - earliestDate.getDate()) + earliestDate.getDate();
+    let mon = rng(latestDate.getMonth() - earliestDate.getMonth());
+    let day = rng(latestDate.getDate() - earliestDate.getDate());
 
     return new Date(yr, mon, day)
-}
-
-function generateRandomUser(amt) {
-    for(let i = 0; i < amt; i++) {
-        let name = generateName();
-        let nameFirst = name[0];
-        let nameLast = name[1];
-
-        let dob = randomDate(1920, (new Date()).getFullYear);
-
-        let cityDepart = generateCity();
-        let cityDestin = generateCity();
-
-    let dateDepart = new Date(document.getElementById("dateLeave").value);
-    let latestDate = new Date(2022, 31, 12)
-    let dateReturn = randomDate(dateDepart, latestDate);
-
-    let bagNum = rng(4);
-
-    let meal = ['chicken', 'fish', 'vegetarian'];
-    meal = meal[rng(2)];
-
-        let extrasOpt = [document.getElementById("extras.legroom").value, document.getElementById("extras.window").value, document.getElementById("extras.headphones").value, document.getElementById("extras.food").value];
-        let extras = [];
-        for(let i = 0; i < extrasOpt.length; i++) {
-            if(rng(9) == 0) {
-                extras.push(extrasOpt[i]);
-            }
-        }
-
-        let canDrink = checkCanDrink(dob);
-
-        let extraCost = 300 + (bagNum * 20) + (extras.length * 10);
-
-        let timeLeft = findTimeLeft(dateLeave, dateDepart);
-
-        let id = assignId();
-
-        let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
-        passengerClassArr.push(user);
-        console.log(user);
-
-        passengerArr.push(`${+id} ${nameLast} ${nameFirst}`);
-        console.log(passengerArr);
-    }
-}
-
-// Checks if return date is greater than leave date
-function checkDates(dateLeave, dateReturn) {
-    dateLeave = new Date(dateLeave);
-    dateReturn = new Date(dateReturn);
-
-    if(dateLeave.getFullYear() > dateReturn.getFullYear()) {
-        return true;
-    } else if(dateLeave.getMonth() > dateReturn.getMonth()) {
-        return true;
-    } else if(dateLeave.getDate() > dateReturn.getDate()) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-
-function search() {
-    let userInfo = '';
-    let input = document.getElementById("search").value;
-    for(let i = 0; i < passengerArr.length; i++) {
-        let thisPassengerArr = passengerArr[i].split(' ')
-        if (input == thisPassengerArr[0] || input == `${thisPassengerArr[2]} ${thisPassengerArr[1]}`) {
-            let thisPassengerClassArr = passengerClassArr[i];
-            console.log(thisPassengerClassArr);
-            let userId = `ID: ${thisPassengerClassArr.id}`;
-            let userNameFirst = `First Name: ${thisPassengerClassArr.nameFirst}`;
-            let userNameLast = `Last Name: ${thisPassengerClassArr.nameLast}`;
-            let userDob = `Date of Birth: ${thisPassengerClassArr.dob}`;
-            let userCityDepart = `Departing City: ${thisPassengerClassArr.cityDepart}`;
-            let userCityDestin = `Destination City: ${thisPassengerClassArr.cityDestin}`;
-            let userDateLeave = `Departing Date: ${thisPassengerClassArr.dateLeave}`;
-            let userDateReturn = `Returning Date: ${thisPassengerClassArr.dateReturn}`;
-            let userbagNum = `Number of Bags: ${thisPassengerClassArr.bagNum}`;
-            let userMeal = `Meal: ${thisPassengerClassArr.meal}`;
-            let userExtras = `Extra Options: ${thisPassengerClassArr.extras}`;
-            let userCanDrink = `Is Over 21: ${thisPassengerClassArr.canDrink}`;
-            let userExtraCost = `Extra Costs: ${thisPassengerClassArr.extraCost}`;
-            let userTimeLeft = `Amount of Time Gone: ${thisPassengerClassArr.timeLeft}`;
-            let userInfo = `${userId}<br>${userNameFirst}<br>${userNameLast}<br>${userDob}<br>${userCityDepart}<br>${userCityDestin}<br>${userDateLeave}<br>${userDateReturn}<br>${userbagNum}<br>${userMeal}<br>${userExtras}<br>${userCanDrink}<br>${userExtraCost}<br>${userTimeLeft}`
-            console.log(userInfo);
-            let output = document.getElementById("output");
-            output.innerHTML = "";
-            output.innerHTML += `${userInfo}`;
-            break;
-        }
-    }
 }
