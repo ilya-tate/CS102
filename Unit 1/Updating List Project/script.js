@@ -26,62 +26,62 @@ class Passenger {
 function submit() {
     if(document.getElementsByClassName("required").value == null) {
         alert("Please fill out the required infromation.");
-    }
+        } else {
+        let nameFirst = document.getElementById("nameFirst").value;
+        let nameLast = document.getElementById("nameLast").value;
+        let dob = new Date(document.getElementById("dob").value);
+        let cityDepart = document.getElementById("cityDepart").value;
+        let cityDestin = document.getElementById("cityDestin").value;
+        let dateLeave = new Date(document.getElementById("dateLeave").value);
+        let dateReturn = new Date(document.getElementById("dateReturn").value);
+        let bagNum = document.getElementById("bagNum").value;
 
-    let nameFirst = document.getElementById("nameFirst").value;
-    let nameLast = document.getElementById("nameLast").value;
-    let dob = new Date(document.getElementById("dob").value);
-    let cityDepart = document.getElementById("cityDepart").value;
-    let cityDestin = document.getElementById("cityDestin").value;
-    let dateLeave = new Date(document.getElementById("dateLeave").value);
-    let dateReturn = new Date(document.getElementById("dateReturn").value);
-    let bagNum = document.getElementById("bagNum").value;
+        let meal = '';
+        if(document.getElementById("meal.chicken").checked) {
+            meal = document.getElementById("meal.chicken").value;
+        } else if(document.getElementById("meal.fish").checked) {
+            meal = document.getElementById("meal.fish").value;
+        } else if (document.getElementById("meal.vege").checked) {
+            meal = document.getElementById("meal.vege").value;
+        } else {
+            meal = null;
+        }
 
-    let meal = '';
-    if(document.getElementById("meal.chicken").checked) {
-        meal = document.getElementById("meal.chicken").value;
-    } else if(document.getElementById("meal.fish").checked) {
-        meal = document.getElementById("meal.fish").value;
-    } else if (document.getElementById("meal.vege").checked) {
-        meal = document.getElementById("meal.vege").value;
-    } else {
-        meal = null;
-    }
+        let extraCost = 300;
+        extraCost += bagNum * 20;
 
-    let extraCost = 300;
-    extraCost += bagNum * 20;
+        let extras = [];
+        if(document.getElementById("extras.legroom").checked) {
+            extras.push(document.getElementById("extras.legroom").value);
+            extraCost += 10;
+        }
+        if(document.getElementById("extras.window").checked) {
+            extras.push(document.getElementById("extras.window").value);
+            extraCost += 10;
+        }
+        if (document.getElementById("extras.headphones").checked) {
+            extras.push(document.getElementById("extras.headphones").value);
+            extraCost += 10;
+        }
+        if (document.getElementById("extras.food").checked) {
+            extras.push(document.getElementById("extras.food").value);
+            extraCost += 10;
+        }
+        if(extras.length == 0) {
+            extras = null;
+        }
 
-    let extras = [];
-    if(document.getElementById("extras.legroom").checked) {
-        extras.push(document.getElementById("extras.legroom").value);
-        extraCost += 10;
-    }
-    if(document.getElementById("extras.window").checked) {
-        extras.push(document.getElementById("extras.window").value);
-        extraCost += 10;
-    }
-    if (document.getElementById("extras.headphones").checked) {
-        extras.push(document.getElementById("extras.headphones").value);
-        extraCost += 10;
-    }
-    if (document.getElementById("extras.food").checked) {
-        extras.push(document.getElementById("extras.food").value);
-        extraCost += 10;
-    }
-    if(extras.length == 0) {
-        extras = null;
-    }
+        let id = assignId();
+        let canDrink = checkCanDrink(dob);
+        let timeLeft = findTimeLeft(dateLeave, dateReturn);
 
-    let id = assignId();
-    let canDrink = checkCanDrink(dob);
-    let timeLeft = findTimeLeft(dateLeave, dateReturn);
+        passengerArr.push(`${id} ${nameLast} ${nameFirst}`);
+        console.log(passengerArr);
 
-    passengerArr.push(`${id} ${nameLast} ${nameFirst}`);
-    console.log(passengerArr);
-
-    let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
-    passengerClassArr.push(user);
-    console.log(user);
+        let user = new Passenger(nameFirst, nameLast, dob, cityDepart, cityDestin, dateLeave, dateReturn, bagNum, meal, extras, canDrink, extraCost, timeLeft, id);
+        passengerClassArr.push(user);
+        console.log(user);
+    }
 }
 
 
@@ -89,7 +89,6 @@ function submit() {
 
 
 function search() {
-    let userInfo = '';
     let input = document.getElementById("search").value;
     for (let i = 0; i < passengerArr.length; i++) {
         let thisPassengerArr = passengerArr[i].split(' ')
