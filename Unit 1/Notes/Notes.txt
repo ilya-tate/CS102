@@ -339,3 +339,55 @@ Event Listeners and Event Handlers
         - Since you may have more than one handler per event you will need to say the handler hat you wnat to remove every time.
     Shorthand
         - Since JS know that event listeners need to be added to and leement you cna use shortand and just say the id of the element without doing the jquery.
+    Event Object
+        - When an event happens on your page the browser creates and event object that stroes information about the event.
+        - For example, what kind of event, what it clicked on, and relative position.
+    Event Object Properties
+        - There are a lot of properties that you can use from the event object.
+        event.type - Will tell you what kind of action you are taking, right click, left click, etc.
+        event.currentTarget - What you are clicking on.
+        event.xlientX / event.clientY - Where you are clicking (px value).
+    Giving Multiple Events
+        - You can make a switch case where you can assign what should happen with each event.
+        Ex.
+        handleEvent (event) {
+            switch (event.type) {
+                case "mousedown":
+                    elem.innerText = 'Mouse button pressed';
+                    break;
+                case "mouseup":
+                    elem.innerText += '...and released.';
+                    break;
+            }
+        }
+    Affecting the Styles
+        - Using hte "style.property" on the current target element will allow you to change the property to whatever you want.
+        Ex.
+        event.currentTarget.style.background = 'red';
+    Adding Event in a "for" Loop
+        - If you want to create a large group of divs that all have event listener you can add them with a loop, and save yourself some work.
+    Creatiing Elements
+        - You can use the document object to make new elements, not just read the elements on it.
+        Ex.
+        document.createElement('div');
+        document.createElement('li');
+    Appending Child
+        - Once you have created and update the element that you want to add to the HTML, you can then take that element and add it to the HTML by appending the child of the parent element.
+        Ex.
+        parent.appendChild(child);
+    Create, Add, Append, Repeat
+        Ex.
+        for(let i = 0; i < 9; i++) {
+            let square = document.createElement('div');
+            square.addEventListener('mouseover', testing);
+            main.appendChild(square);
+        }
+    Transitions
+        - There are a lot of different CSS animations that you can put on your work but the first one (and easiest one) that we are going to use is transition.
+        - Every time a property changes on your CSS the transition will show the chance from one to the next.
+        - Transition "all" will affect every kind of transition on that element.
+        - "1s" means it will take 1 secodn to cause that transition.
+        Ex.
+        div {
+            transition: all 1s;
+        }
