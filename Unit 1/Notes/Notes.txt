@@ -391,3 +391,12 @@ Event Listeners and Event Handlers
         div {
             transition: all 1s;
         }
+    Custom Cursors
+        - THere rae a few ways to make a custom cursor on the screen, we are going to learn the simple way for now.
+        - The cursor property is a way that we can change what the cursor looks like.
+    Cursor Property
+        - This will only work on the selector that you choose.
+        Ex.
+        div {
+            cursor: url('cleat.png'), pointer;
+        }
