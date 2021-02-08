@@ -346,7 +346,7 @@ Event Listeners and Event Handlers
         - There are a lot of properties that you can use from the event object.
         event.type - Will tell you what kind of action you are taking, right click, left click, etc.
         event.currentTarget - What you are clicking on.
-        event.xlientX / event.clientY - Where you are clicking (px value).
+        event.ClientX / event.clientY - Where you are clicking (px value).
     Giving Multiple Events
         - You can make a switch case where you can assign what should happen with each event.
         Ex.
