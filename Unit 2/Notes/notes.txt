@@ -1,0 +1,51 @@
+SASS 101
+    - SASS is exactly like what we have been doing in CSS but better.
+    - We are able to nest styles, define variables easier and do inline caclculations easier.
+
+
+    Creating .scss Files
+        - Sass is just a type of scss but it is the most commonly used one and you are able to use both style.scss and style.sass.
+        - Almost everyone uses SCSS and we are too but if you are working alone don't be afraid to try it out.
+
+    Compiling SCSS
+        - Websites can't run on scss so we will need to compile it down to a css file in order to use it on the HTML
+        - We are going ot download an extension to do this.
+
+    Variables
+        - You could make variables before but they were kind of annoying and you needed to create them in root.
+        - Now you cna make them anywhere isng the dollar sign.
+        Ex.
+        $main-color: lightblue;
+        $font-stack: Helvetica, sans-serif;
+        $border-color: #333;
+
+    Nesting
+        - We no longer have to declare each and every element on the way too the one that we want to edit.
+        - We can use nesting to refer tochild elements (just like every other coding language) and the scss will compile into the proper references.
+    
+    Nesting Similar Properties
+        - Some properites are very similar to one another for examples padding-left, padding-right, padding-bottom, padding-top.
+        - SCSS can group these through nesting, making it easier for us.
+        Ex.
+        padding: {
+            top: 5px;
+            right: 0px;
+            left: 50px;
+        }
+
+    & with Pseudo Classes
+        - Creating pseudo classed (:active, :focus, :hover, etc.) is also made easeir by using the front of the pseudo class that you want to add.
+        Ex.
+        .button {
+            &visited {
+                background {
+                    background-color: red;
+                }
+                &:hover {
+                    background-color: yellow;
+                }
+                &:active {
+                    background-color: green;
+                }
+            }
+        }

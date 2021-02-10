@@ -1,0 +1,15 @@
+nav {
+    margin-bottom: 15px;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style: none;
+        width: 100vh;
+        height: 2rem;
+        align-items: center;
+        background-color: black;
+        color: white;
+    }
+}
