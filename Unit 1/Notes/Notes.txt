@@ -297,5 +297,106 @@ Classes and Class Syntax:
     Date.now()
         - Date.now()
         - This shows the current time on the device that you are using.
-        - This is the saem as saying new Date().getTIme() but saves your computer from creating a new date object.
-    
+        - This is the saem as saying new Date().getTime() but saves your computer from creating a new date object.
+
+Event Listeners and Event Handlers
+    Events
+        - An event is something happening on the page, normally this is cause by the user interacting with the page.
+        - Every DOM node (elemnts/item) on the page genreate all of these signals, normally they are just set to do nothing.
+    Event Listeners
+        - In order to react to these signal we need to set up event listeners that will wait on the page until the event triggers.
+        - We have been using on of them for a while now called 'onclick=""'.
+    Common Mouse Events
+        click - When the mouse is pressed and released on an element.
+        contextmenu - When the mouse right-clicks on an element.
+        mouseover/mouseout - When the mosue cursor moves over or leaves and element.
+        mousedown/mouseup - When the mouse button is pressed / released over and element.
+        mousemove - When the mosue is moved.
+    Common Keyboard Events
+        keydown - When the keyboard key is pressed.
+        keyup - When the keyboard key is released.
+    Common Form Element Events
+        Submit - When you hit the submit button in the form.
+        Focus - When the user selects and element on the form, such as an input box.
+    Document / CSS Events
+        DOMContentLoaded - When the HTML is loaded and the DOM is fully built.
+        Transitioned - When a CSS animation finishes.
+    Event Handlers
+        - Once a listener activates from the user interacting you have to tell it how to act.
+        - A handler will tell the event listener what to do once it notices that the event has happened.
+    'this'
+        - You can use 'this' and refer to the element that even is tied to.
+        Ex.
+        <button onclick="alert(this.innerHTML)">Click Me</button>
+    'addEventListener'
+        - The old way of adding an event will not allow you to add more than one function per action, instead use this.
+        Ex.
+        elemID.addEventListener(event, handler, [options]);
+    'removeEventListener'
+        - You can also remove any event listener you want by using this.
+        Ex.
+        elemID.removeEventListener(event, handler, [options]);
+        - Since you may have more than one handler per event you will need to say the handler hat you wnat to remove every time.
+    Shorthand
+        - Since JS know that event listeners need to be added to and leement you cna use shortand and just say the id of the element without doing the jquery.
+    Event Object
+        - When an event happens on your page the browser creates and event object that stroes information about the event.
+        - For example, what kind of event, what it clicked on, and relative position.
+    Event Object Properties
+        - There are a lot of properties that you can use from the event object.
+        event.type - Will tell you what kind of action you are taking, right click, left click, etc.
+        event.currentTarget - What you are clicking on.
+        event.ClientX / event.clientY - Where you are clicking (px value).
+    Giving Multiple Events
+        - You can make a switch case where you can assign what should happen with each event.
+        Ex.
+        handleEvent (event) {
+            switch (event.type) {
+                case "mousedown":
+                    elem.innerText = 'Mouse button pressed';
+                    break;
+                case "mouseup":
+                    elem.innerText += '...and released.';
+                    break;
+            }
+        }
+    Affecting the Styles
+        - Using hte "style.property" on the current target element will allow you to change the property to whatever you want.
+        Ex.
+        event.currentTarget.style.background = 'red';
+    Adding Event in a "for" Loop
+        - If you want to create a large group of divs that all have event listener you can add them with a loop, and save yourself some work.
+    Creatiing Elements
+        - You can use the document object to make new elements, not just read the elements on it.
+        Ex.
+        document.createElement('div');
+        document.createElement('li');
+    Appending Child
+        - Once you have created and update the element that you want to add to the HTML, you can then take that element and add it to the HTML by appending the child of the parent element.
+        Ex.
+        parent.appendChild(child);
+    Create, Add, Append, Repeat
+        Ex.
+        for(let i = 0; i < 9; i++) {
+            let square = document.createElement('div');
+            square.addEventListener('mouseover', testing);
+            main.appendChild(square);
+        }
+    Transitions
+        - There are a lot of different CSS animations that you can put on your work but the first one (and easiest one) that we are going to use is transition.
+        - Every time a property changes on your CSS the transition will show the chance from one to the next.
+        - Transition "all" will affect every kind of transition on that element.
+        - "1s" means it will take 1 secodn to cause that transition.
+        Ex.
+        div {
+            transition: all 1s;
+        }
+    Custom Cursors
+        - THere rae a few ways to make a custom cursor on the screen, we are going to learn the simple way for now.
+        - The cursor property is a way that we can change what the cursor looks like.
+    Cursor Property
+        - This will only work on the selector that you choose.
+        Ex.
+        div {
+            cursor: url('cleat.png'), pointer;
+        }

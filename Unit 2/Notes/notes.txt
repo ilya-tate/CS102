@@ -48,4 +48,77 @@ SASS 101
                     background-color: green;
                 }
             }
+
+    Maps
+        - We can create maps similar to objects in js except with parenthesis.
+        - They are set up with an object name and then corresponding key: value pairs.
+        Ex.
+        $font-weight {
+            'small': 300,
+            'medium': 500,
+            'large: 700,
+        };
+
+    map-get
+        - Using these can be a little tedious but it is still good practice to get used to these for larger sites.
+        - To use these maps you need to use the mao-get method in your scss.
+        Ex.
+        font: map-get($font-weight, small);
+        font: map-get($map: $font-weight, $key: small);
+
+    Functions
+        - That map-get is kinda clunky and can get really annoying to use so most scss coders will use functions to fix that.
+        - To create a function in scss you use the @ function rule.
+        Ex.
+        @function weight($name) {
+            @return map-get($font-weight, $name);
+        };
+        div {
+            font: weight(bold);
+        }
+
+    Mixins
+        - These are kind of like partials but theya re used in line and not in another file.
+        - You create a mixin using the @mixin rule and then you can call it by using @include rule.
+
+    Common Mixins
+        - There are many bits of code that we need to type too often, for example for example do to flex we need to do:
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        - Mixins help with this because they allow us to write it one time and then @include it as many times as we want.
+        Ex.
+        @mixin flexCenter($direction) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: $direction;
+        }
+        @include flexCenter(row);
+
+    Dark Theme Mixin
+        - This is for coding only and will not update live on the page but here is an example of a mixin.
+        Ex.
+        @mixin theme($dark-theme: true) {
+            @if $dark-theme {
+                background: darken($main-color, 100%);
+                color: lighten($text-color, 100%);
+            }
+        }
+        .dark {
+            @include theme(true);
+        }
+
+    Caclculations
+        - We are able to use calc() in css but in scss you can just do calculations without a method.
+        Ex.
+        width: 50% - 4% // 46%
+
+    Extending Container
+        - If you want 2 things t ohave all the smae properties as each other you can use the @extend rule and it will clone all of the same css properties, then you can modify what you want after it.
+        Ex.
+        #submit {
+            @extend #testing;
+            &:hover{background-color: black;}
         }
