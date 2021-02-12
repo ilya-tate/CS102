@@ -1,0 +1,12 @@
+body {
+        display: grid;
+    grid-template-columns: 115px 115px 115px;
+    grid-template-rows: 115px 115px 115px;
+    justify-content: center;
+}
+
+div {
+    outline: solid black 5px;
+    margin: 10px;
+    transition: all 1s;
+}

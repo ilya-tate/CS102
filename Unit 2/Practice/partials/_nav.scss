@@ -1,15 +1,16 @@
 nav {
-    margin-bottom: 15px;
-
     ul {
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
+        width: 100vw;
+        text-decoration: none;
         list-style: none;
-        width: 100vh;
-        height: 2rem;
-        align-items: center;
         background-color: black;
-        color: white;
+        color: honeydew;
+        text-align: center;
+        height: 50px;
+        align-items: center;
     }
+    margin-bottom: 10px;
 }

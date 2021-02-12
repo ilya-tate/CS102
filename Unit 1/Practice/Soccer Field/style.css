@@ -1,0 +1,24 @@
+#field {
+    height: 90vh;
+    width: 90vw;
+
+    border: 10px solid white;
+    position: relative;
+    overflow: hidden;
+    background-color: chartreuse;
+    cursor: url('media/cleat.png'), pointer;
+}
+
+html {
+    background-color: chartreuse;
+}
+
+#ball {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 40px;
+    height: 40px;
+    transition: all .5s;
+}
