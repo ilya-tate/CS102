@@ -1,7 +1,6 @@
-SASS 101
+SASS 101:
     - SASS is exactly like what we have been doing in CSS but better.
     - We are able to nest styles, define variables easier and do inline caclculations easier.
-
 
     Creating .scss Files
         - Sass is just a type of scss but it is the most commonly used one and you are able to use both style.scss and style.sass.
@@ -122,3 +121,52 @@ SASS 101
             @extend #testing;
             &:hover{background-color: black;}
         }
+
+
+jQuery 101
+- jQuery is a javascript library that allows us to navigate the DOM and implement animations adn events easier then base JS.
+- jQuery is used very often and by thousands of companies
+
+    Proper Installing jQuery
+        - jQuery is not like SASS, it cannot be installed globally and still be expected to work.
+        - Sinec javascript is a library that is being executed on the client side when the page runs it won't be able to run the site if it doesn't have jQuery installed.
+    CDN
+        - In order to get these libraries out to everyone that needs it, we use a system called a CDN or Content Delivery Network.
+        - This is a simple way to import your library with a link and then it is downloaded on the user's computer when they enter the site.
+    Finding the CDN
+        - In case you didn't find it look up jQuery CDN on google and it's the first link.
+    The jQuery Structure
+        - jQuery is written very similar to js with a few key differences. They use $(); to grab values and then .methods to act on it.
+        Ex.
+        $(document).ready();
+    Container for jQuery
+        - Before you code any jQuery you need to wrap it in a container that will make sure the html is loaded.
+        Ex.
+        $(document).ready(function () {
+            // Code
+        });
+    Shorthand
+        - This is done at the beginning of ever jQuery so coders got tired oftyping and now ther is shortand for it.
+        Ex.
+        $(function () {});
+    Using jQuery
+        - Here is an example of code that will hide a panel. I'll explain it a little more on the next slide.
+        Ex.
+        $(function()) {
+            $(#panel1).hide(1000);
+        }
+        - We access the panel using the id just like css but with a $().
+        - This .hide is a jQuery method and (1000) a how long it will take to do this action in milliseconds.
+    Chaining
+        - EVERYTHING in jQuery is done using methods like .hide.
+        - Because of this we can chain together many methods in row as we want.
+        Ex.
+        $('#panel1').hide(1000).show(1000).hide(1000);
+    Toggling
+        - Commmands like show and hide will only work in one collection, meaning if it is already hidden it won't show.
+        - This means you will need a button to show and another button to hide.
+        - This is fixed by the addition of toggle.
+        - Almost every action in jQuery has a toggle ability.
+        - If it is hidden then it will show and vise versa.
+        Ex.
+        $('#panel1').toggle(1000);
