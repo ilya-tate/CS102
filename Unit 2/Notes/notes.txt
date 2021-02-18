@@ -170,3 +170,42 @@ jQuery 101
         - If it is hidden then it will show and vise versa.
         Ex.
         $('#panel1').toggle(1000);
+    Changing CSS
+        - Easier than ever with the CSS method.
+        - By saying .css({}) the code will compile and do the style.property for you.
+        Ex.
+        $('#panel1').css({
+            'color': 'red',
+            'font-weight': "900"
+        });
+    Changing HTML
+        - Also very easy with the .html().
+        Ex.
+        $('#button1').html('new Text');
+    Event Binding
+        - jQuery also helps with event listeners.
+        - We no longer need tot ype out .addEventListener every time we want to add one we can use ".on".
+        Ex.
+        $('#button1').on('event', function(){});
+        $('#button1').on('click', function(){
+            $('#panel1').fadeToggle(1000);
+        });
+        - This works with any of the js events that you are used to using but now we can write ".on" instead of ".addEventListener" (it's a little easier).
+    Selecting
+        - Remember htat the selectors for your jQuery are the exact same as the selectors for the CSS so if you want to add an event listener to every button you can do that.
+        Ex.
+        $('button').on('click', function({}));
+    Targeting
+        - You can also add your own attributes to your html and store those in variables.
+        - Using this in combination wiht basic js can make your work easier.
+    Using "this" in the jQuery
+        - We add an event to every button that will find the "panelid" assigned to it using this.
+        - Then we combine that value with and id to choose the panel we want to toggle.
+        Ex.
+        $('button').on('click', function(){
+            let panelId = $(this).attr('panelid');
+            $('#panel' + panelId).toggle(1000);
+        });
+    Another Point
+        - You can also add more t oyour selectors jQuery.
+        - For instance if we want to change the text in the panel heading we can do that by adding to it.

@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -13,9 +13,9 @@ $border: 3px solid #333;
 $text-color: white;
 
 
-@mixin themeable($theme-name, $container-bg, $left-bg, $right-bg, $innertext, $button-bg){
-    .#{$theme-name}{
-        div{
+@mixin themeable($theme-name, $container-bg, $left-bg, $right-bg, $innertext, $button-bg) {
+    .#{$theme-name} {
+        div {
             background-color: $container-bg;
             border: $border;
             display: flex;
@@ -24,15 +24,15 @@ $text-color: white;
             margin: 0 auto;
             padding: 1em;
             width: 90%;
-            *{
+            * {
                 color: $innertext;
                 font-size: 2rem;
             }
-            .left{
+            .left {
                 background-color: $left-bg;
                 height: 100%;
                 width: 70%;
-                button{
+                button {
                     background-color: $button-bg;
                     border: 0;
                     border-radius: 10px;
@@ -44,7 +44,7 @@ $text-color: white;
                     right: 10px;
                 }
             }
-            .right{
+            .right {
                 @extend .left;
                 width: 28%;
                 position: relative;
@@ -66,7 +66,7 @@ div{
     align-items: center;
     gap: 5px;
     font-family: $font-stack;
-    section{
+    section {
         width: 300px;
         height: 400px;
         background-color: $main-color;
@@ -83,22 +83,22 @@ div{
         justify-content: space-between;
         flex-direction: column;
 
-        button{
+        button {
             background-color: $main-color;
             border: $border;
             border-radius: 10px;
             // height: 25px;
             margin: 5px;
             outline: none;
-            &:active{
+            &:active {
                 background-color: darkorchid;
                 border: 2px solid red;
             }
-            &#testing{
+            &#testing {
                 align-self: flex-end;
             }
         }
-        #submit{
+        #submit {
             justify-content: flex-end;
             align-self: flex-end;
         }
