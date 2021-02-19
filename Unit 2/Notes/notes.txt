@@ -209,3 +209,41 @@ jQuery 101
     Another Point
         - You can also add more t oyour selectors jQuery.
         - For instance if we want to change the text in the panel heading we can do that by adding to it.
+
+
+DOM Traversal
+    - Many tutorials will include DOM traversal, jobs will ask if you are a master of DOM and employers will require that you can access and change the elements of the DOM at will.
+    - Let's learn more about DOM traversal.
+
+    Dom (Document Object Model)
+        - We talked about this at the beginning of the year when we learned about HTML but to recap.
+        - DOM is how your computer builds your site based on the HTML code that you write.
+        - When you access your HTML from the jQuery or the CSS you are actually moving around the DOM that was created not the actual HTML.
+        - We have been using DOM traversal this whole time with ids and classes and all the selectors that we use in CSS.
+        - To be a master DOM walker you must learn how to move past the basics and into the obscure.
+    Basics
+        - The following are all basic DOM references that you have been using in jQuery.
+        Ex.
+        $('button');
+        $("#panel4-heading");
+        $(`.panel-heading`);
+        $(`.header div #button1`);
+    Medium Level DOM (CSS)
+        - We have used all of the following at some point, these are CSS pseudo classes and are therefore usable in the jQuery.
+    Medium Level DOM (jQuery)
+        - These are the same 4 selectors, but they are written in jQuery.
+        Ex.
+        $('div').first(); // or $('div:first');
+        $('div').eq(1); // or $('div.eq(1)');
+        // Active doesn't exist in jQuery, use SCSS
+        $('div').hover(); // or $('div:hover');
+    DOM Walker
+        - To be a master DOM walker you must know hwo to traverse the most condusing DOMs and know tha pths no matter the language you are using.
+    Changing Classes
+        - Editing classes in js is time consuming becuase you need to access hte calss as an array an the nmodify it.
+        - jQuery allows us to just use methods.
+        Ex.
+        $('li').on('click', function(){
+            $(this).addClass('highlight');
+            $(this).siblings().removeClass('highlight');
+        });

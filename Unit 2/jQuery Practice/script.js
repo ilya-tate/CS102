@@ -22,57 +22,61 @@ $(function() {
 
 
 
-    $('#panel1').css({
-        'background-color': 'blue',
-        'color': 'white'
-    });
+    // $('#panel1').css({
+    //     'background-color': 'blue',
+    //     'color': 'white'
+    // });
 
-    $('#panel1-body').html("The text background is blue and the text is white.");
-
-
-    $('#panel2').css({
-        'background-color': 'green',
-        'color': 'white',
-        'font-weight': 'bold'
-    });
-
-    $('#panel2-body').html("The background is green and the tex tis white and the font is bold.");
+    // $('#panel1-body').html("The text background is blue and the text is white.");
 
 
-    $('#panel3').css({
-        'background-color': 'darkgrey',
-        'color': 'black',
-        'font-family': 'monospace'
-    });
-    $('#panel3-body').css({
-        'font-family': 'monospace'
-    });
+    // $('#panel2').css({
+    //     'background-color': 'green',
+    //     'color': 'white',
+    //     'font-weight': 'bold'
+    // });
 
-    $('#panel3-body').html("The background is darkgrey and the tex tis black and the font family is monospace, including the panel content.");
+    // $('#panel2-body').html("The background is green and the tex tis white and the font is bold.");
 
 
-    $('#panel4').css({
-        'background-color': 'white',
-        'color': 'black'
-    });
-    $('#panel4-heading').css({
-        'background-color': 'blue',
-        'color': 'white',
-        'text-decoration': 'underline',
-        'font-weight': 'bold'
-    });
-    $('#panel4-body').css({
-        'background-color': 'red',
-        'color': 'white',
-        'font-family': 'serif'
-    });
+    // $('#panel3').css({
+    //     'background-color': 'darkgrey',
+    //     'color': 'black',
+    //     'font-family': 'monospace'
+    // });
+    // $('#panel3-body').css({
+    //     'font-family': 'monospace'
+    // });
 
-    $('#panel4-body').html("The panel is white with black text, the heading is blue white white text, and underlined with bold text, the content is red with whtie text and serif font.");
+    // $('#panel3-body').html("The background is darkgrey and the tex tis black and the font family is monospace, including the panel content.");
+
+
+    // $('#panel4').css({
+    //     'background-color': 'white',
+    //     'color': 'black'
+    // });
+    // $('#panel4-heading').css({
+    //     'background-color': 'blue',
+    //     'color': 'white',
+    //     'text-decoration': 'underline',
+    //     'font-weight': 'bold'
+    // });
+    // $('#panel4-body').css({
+    //     'background-color': 'red',
+    //     'color': 'white',
+    //     'font-family': 'serif'
+    // });
+
+    // $('#panel4-body').html("The panel is white with black text, the heading is blue white white text, and underlined with bold text, the content is red with whtie text and serif font.");
 
 
     // $('#button1').on('click', function(){
     //     $('#panel1').fadeToggle(1000);
     // });
+
+    //     function rng(min, max) {
+    //     return Math.floor(Math.random() * max) + min;
+    // }
 
     // $('#button2').on('click', function(){
     //     let showDelay = rng(1000, 6000); // I made an rng function
@@ -124,26 +128,36 @@ $(function() {
 
 
 
-    $('button').hide();
-    $('.panel').hide();
-    $('#button1').show();
-    $('#button1').html();
+    // $('button').hide();
+    // $('.panel').hide();
+    // $('#button1').show();
+    // $('#button1').html();
 
-    $('button').on('click', function(){
-        let panelid = $(this).attr('panelid');
-        $('#panel' + panelid).toggle();
-        $('#panel' + panelid + '.panel-body').html("This changed")
-    });
+    // $('button').on('click', function(){
+    //     let panelid = $(this).attr('panelid');
+    //     $('#panel' + panelid).toggle();
+    //     $('#panel' + panelid + '.panel-body').html("This changed")
+    // });
 
-    $('.panel').on('click', function(){
-        let panelid = $(this).attr('panelid');
-        let panelid = +(panelid) + 1;
-        $('#button' + panelid).toggle();
-        $('#button' + panelid).html("This changed")
+    // $('.panel').on('click', function(){
+    //     let panelid = $(this).attr('panelid');
+    //     let panelid = +(panelid) + 1;
+    //     $('#button' + panelid).toggle();
+    //     $('#button' + panelid).html("This changed")
+    // });
+
+
+
+    // $('li').on('click', function(){
+    //     $(this).next().toggle(300);
+    // });
+
+
+
+    $('li').on('click', function(){
+        $(this).closest('.list').find('li').filter('.highlight').removeClass('highlight');
+        $(this).addClass('highlight');
     });
 });
 
 
-function rng(min, max) {
-    return Math.floor(Math.random() * max) + min;
-}

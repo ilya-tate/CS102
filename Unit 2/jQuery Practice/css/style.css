@@ -108,4 +108,8 @@
 .row .panel .panel-body {
   min-height: 6rem;
 }
+
+.highlight {
+  background-color: yellow;
+}
 /*# sourceMappingURL=style.css.map */
