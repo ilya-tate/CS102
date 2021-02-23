@@ -1,2 +1,2 @@
-*{padding:0;margin:0}
+*,*::after,*::before{padding:0;margin:0;-webkit-box-sizing:border-box;box-sizing:border-box}h1{text-align:center}#slider{width:720px;height:400px;overflow:hidden;margin:auto}#slider .slides{display:block;width:6000px;margin:0;padding:0}#slider .slide{float:left;width:720px;list-style-type:none;height:400px}.slide1{background:red}.slide2{background:green}.slide3{background:blue}.slide4{background:orange}.slide5{background:violet}.slide6{background:brown}
 /*# sourceMappingURL=style.min.css.map */

@@ -247,3 +247,37 @@ DOM Traversal
             $(this).addClass('highlight');
             $(this).siblings().removeClass('highlight');
         });
+
+
+    The Timing Events
+        - There are only 2 adn they work very similarly.
+        setInterval(function(){}, delay); - Runs continuously afte the delay.
+        setTimeout(function(){}, delay); - Runs once after the delay.
+    "setInterval"
+        - The delay happens after every time the function happens.
+        - If the function is an animation that take 2000ms and you set the delay to 2500 ms then there will be a 500 ms breka between each one.
+    Saving Your Intervals
+        - You want to save your interval functions in a variable so that you can reference it later to stop the loop.
+        Ex.
+        let interval;
+        function startLoop() {
+            interval = setInterval(function(){}, 1000);
+        }
+    "clearInterval"
+        - If you want your looping function to stop then you can clear the interval and remove the loop.
+        Ex.
+        function soptLoop() {
+            clearInterval(interval);
+        }
+    Wrapping it All Together
+        - Then you can use those functions on events.
+        Ex.
+        let interval;
+        function startLoop() {
+            interval = setInterval(function(){}, 1000);
+        }
+        function stopLoop() {on
+            clearInterval(interval);
+        }
+        $('#button1').on('click', startLoop());
+        $('#button2').on('click', stopLoop());
