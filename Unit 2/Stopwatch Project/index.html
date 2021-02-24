@@ -9,16 +9,20 @@
     <title>Stopwatch Project</title>
 
     <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 
 <body class="body">
     <div class="container">
-        <button class="toggle-time">Start/Stop</button>
-        <button class="show-time">Lap</button>
+        <div class="buttons">
+            <button class="toggle-time">Start/Stop</button>
+            <button class="show-time">Lap</button>
+        </div>
 
         <div class="stopwatch">
             <p>
-                <span class="hour">0</span>:<span class="min">00</span>:<span class="sec">00</span>
+                <span class="hour">0</span>:<span class="min">00</span>:<span class="sec">00</span>.<span class="msec">00</span>
             </p>
         </div>
     </div>
