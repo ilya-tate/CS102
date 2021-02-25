@@ -247,8 +247,6 @@ DOM Traversal
             $(this).addClass('highlight');
             $(this).siblings().removeClass('highlight');
         });
-
-
     The Timing Events
         - There are only 2 adn they work very similarly.
         setInterval(function(){}, delay); - Runs continuously afte the delay.
@@ -281,3 +279,30 @@ DOM Traversal
         }
         $('#button1').on('click', startLoop());
         $('#button2').on('click', stopLoop());
+
+
+Bootstrap
+    - Bootstrap is a front-end framework for UI's and themes.
+    - It is a mobile first framwork, meaning we are going to be creating the site with a phone in mind.
+    - This is responsive be default and does a lot of the work for you.
+    - Because classes are consistent between any site that uses it, devs are able to jump into any other projects and get to work right way.
+    - Because this is the most popular framework it is very easy to find help, tutorials, and templates.
+
+    Setup
+        - Go to the main bootstrap main site and press the get started button.
+        - You need both the CSS and JS CDN to get the work started.
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    Documentation
+        - If you take some time you can look around the documentation and see al of the styles that you can do.
+        - Try to find the navbar, tables, buttons, and styles.
+    Grid System
+        - Bootstrap works in a 12 column grid system and will autofill the cols for you.
+    Grid Classes
+        - Here is a table showing how to use the grid system, all of these are classes and can be used in the HTML.
+    A Fre Thing You Should Know
+        - Rows must be placed in a "class="container"" to span a specific widht and a "class="container-fluid" to span the entire width.
+        - Once you create your container you can create .rows and then .cols in that for the layout.
+        - Columns are done by percent and size relative to the page.
