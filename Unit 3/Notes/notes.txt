@@ -1,0 +1,49 @@
+ADVANCED DATA TYPES
+
+
+Multi Dimensional Arrays
+
+    Arrays 101
+        - An array stores na indexed list of values starting at 0.
+        - When you create an array you use [].
+        - Arrays are the most commonly used objects.
+    
+    2D Arrays
+        - An array is created with [] so a 2D array is just an array with another array in it.
+        Ex.
+            [ ['first', 0], ['second', 1], ['third', 3] ]
+        - The array above can be referenced using 2 indexes.
+        Ex.
+            [0][0] == 'first'
+
+    "console.table(array)"
+        - Now we can use an output called "console.table(array)".
+        - This wil output all of the infromation in an easy to read array.
+    
+    Accessing a 2D Array
+        - Example array values, using the table makes it very easy to see which value you want to take.
+        Ex.
+            ┌─────────┬─────────────┬───┐
+            │ (index) │      0      │ 1 │
+            ├─────────┼─────────────┼───┤
+            │    0    │  'School'   │ 6 │
+            │    1    │   'Food'    │ 1 │
+            │    2    │  'Driving'  │ 2 │
+            │    3    │ 'Free Time' │ 8 │
+            │    4    │ 'Sleeping'  │ 7 │ 
+            └─────────┴─────────────┴───┘
+            day[0][0] // 'School'
+            day[1][1] // 1
+            day[3][0] // 'Free Time'
+            day[4][1] // 7
+
+    Splicing
+        - Splicing is that act of inserting more infromation into the array without changing any of the existing information.
+        - This is so useful because it will move all of the indexes over for you.
+        - This works on any size array, you just need to say where you are splicing it.
+        - Let's add studing into our array and give it 2 hours.
+        - If you look at the table again you will see that everything was moved up 1 index to make room.
+        - And now let's remove 2 hours from 'free time' to make time in our schedule, remember that it was moved to index 4.
+
+    Creating New indexes
+        - 
