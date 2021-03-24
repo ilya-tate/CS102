@@ -45,5 +45,15 @@ Multi Dimensional Arrays
         - If you look at the table again you will see that everything was moved up 1 index to make room.
         - And now let's remove 2 hours from 'free time' to make time in our schedule, remember that it was moved to index 4.
 
-    Creating New indexes
-        - 
+    Iterating Over a 2D Array
+        - Most coders will use i and j to loop through 2 items you can always add k, l, m, n... if you need more.
+        Ex.
+            // Loop the rows (vertically)
+            for (let i = 0; i < activites.length; i++) {
+                // Loop the columns (horizontally)
+                for (let j = 0; j < activites[i].length; j++) {
+                    console.log('[' + i + ',' + j + '] = ' + activities[i][j]);
+                }
+            }
+        - I would recommend using "in" instead.
+        - This will make it do the same thing that you were doing but in half the time.

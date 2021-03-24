@@ -21,5 +21,13 @@ for (let i in day) {
     day[i][2] = percent + '%';
 }
 
+// Loop the rows (vertically)
+for (let i = 0; i < day.length; i++) {
+    // Loop the columns (horizontally)
+    for (let j = 0; j < day[i].length; j++) {
+        console.log(`[${i}, ${j}] = ${day[i][j]}`);
+    }
+}
+
 
 console.table(day);
