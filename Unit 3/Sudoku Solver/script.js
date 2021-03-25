@@ -125,4 +125,29 @@ function getPossible(board, row, col) {
 }
 
 
-console.log(getPossible(_BOARD, 3, 0));
+function fillInCell(board, row, col) {
+    if (board[row][col] == '.') {
+        let possible = getPossible(board, row, col);
+        
+        if (possible.length == 1) {
+            board[row][col] = possible[0];
+        }
+    }
+}
+
+
+function solveBoard(board) {
+    for (i in board) {
+        do {
+            for (rowNew in board) {
+                for (colNew in board[rowNew]) {
+                    fillInCell(board, rowNew, colNew);
+                }
+            }
+        } while (board[i].indexOf('.') != -1) // When there are no more '.' index returns -1 and moves to next row
+    }
+}
+
+
+solveBoard(_BOARD);
+console.table(_BOARD);
