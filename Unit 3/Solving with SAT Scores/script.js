@@ -123,15 +123,37 @@ function ansExtraOne() {
 
     let maxAvg = Math.max(...arrAvgs);
     let minAvg = Math.min(...arrAvgs);
+    let rangeOfAvgs = maxAvg - minAvg;
 
-    for (i in _SCORES) {
-        
+    for (i in arrAvgs) {
+        let perc = ((((arrAvgs[i] - minAvg) / rangeOfAvgs) * 0.5) + 0.5) * 100; // ((((avg - minAvg) / range) * .5) + .5) * 100
+        arrPercs.push(perc.toFixed(2));
     }
+
+    return arrPercs;
 }
-ansExtraOne();
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 function ansExtraTwo() {
-    let foo;
+    let allScores = [];
+    for (i in _SCORES) {
+        for (j in _SCORES[i]) {
+            allScores.push(_SCORES[i][j]);
+        }
+    }
+
+    let maxScore = Math.max(...allScores);
+    let minScore = Math.min(...allScores);
+    let rangeOfScores = maxScore - minScore;
+
+    let arrPercs = _SCORES;
+    for (i in arrPercs) {
+        for (j in arrPercs[i]) {
+            let perc = ((arrPercs[i][j] - minScore) / rangeOfScores) * 100; // ((score - minScore) / range) * 100
+            arrPercs[i][j] = Math.ceil(100 - perc);
+        }
+    }
+
+    return arrPercs;
 }
