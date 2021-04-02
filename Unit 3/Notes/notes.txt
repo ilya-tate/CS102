@@ -1,7 +1,8 @@
 ADVANCED DATA TYPES
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Multi Dimensional Arrays
+Multidimensional Arrays:
 
     Arrays 101
         - An array stores na indexed list of values starting at 0.
@@ -57,3 +58,105 @@ Multi Dimensional Arrays
             }
         - I would recommend using "in" instead.
         - This will make it do the same thing that you were doing but in half the time.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Objects:
+
+    Mapping
+        - A map is very similar to an object, but it accepts keys of any type, nums, bools, strings...
+        - You can assign "keys: value" pairs and use a lot of new methods that you can't use with objects.
+    
+    Initializing a Map
+        - A map is an object that needs to be created.
+        Ex.
+            let map = new Map();
+        - Once you have created new instance of the object you are able to use it to store properties.
+
+    Adding Values to the Map
+        - You can use "map[key] = value" to set the values in the map but you don't do that, it will treate your map like a plain object limiting what we can do.
+        - Instead we use:
+            Ex. map.set(key, value);
+
+    Getting Values from the Map
+        - Similar to getting, there is a proper way to get a value from a map.
+        Ex.
+            let map = new Map();
+            map.set(studentName, 'Jimmy');
+            map.get(studentName);
+        - "map.get" will return the value that is corresponding to that key in this case 'Jimmy'.
+    
+    Map Methods
+        - Now that we are using the "Map" object we can use the built in map methods.
+        Methods:
+            map.size - Returns number of items in the map. Instead of using ".length" we can use this.
+            map.set(key, value); - Adds the key value pair to the map.
+            map.get(key); - Returns the value for the key requested.
+            map.has(key); - Returns true or false if the key exists.
+            map.delete(key); - Removes the key and value pair.
+            map.clear(); - Empties the entire map.
+
+    Iterating Over Keys
+        - When you create an object with keys they are able to give a lot more information than the indexing of an array.
+        - Using this information correctly can be just as important as the values that are attatched to them.
+
+    Forof
+    - For in gave us every index for the length of the object that we are looping through.
+    Ex.
+        for (row in input1) //0, 1, 2, 3, 4, 5, ...
+    - For of gives us the value insteadof the index.
+    Ex.
+        for (row of input1) // input[0], input[1], input[2], ...
+    
+    Iterating Over a Map
+        - There is a new loop that you can use now called "forof".
+        Ex.
+            for (let value of object) {}
+        - There is a HUGE difference between "in" and "of".
+    
+    Map Methods
+        map.keys(); - There is a build in method that will return an array of every key in the map. You can then use all of those keys in loops or even to just check what is in the map.
+        map.values(); - There is also a built in map method to get all of the values out.
+        map.entries(); - And a method to get out both the key and the value.
+    
+    Objects to Maps
+        - If you have an object and you want to make it into a map you can use.
+        Ex.
+            let map = new Map(Object.entries(obj));
+        - This will return a 2D array from the object that will be accepted by the map.
+    
+    Maps to Objects
+        - You can create an object using a 2D array with the following method.
+        Ex.
+            let obj = Object.fromEntries([
+                [key, value],
+                [key, value]
+            ]);
+        - Since object can be built from entries you can use the map method to form it into entries and pass that to an object.
+        Ex.
+            let obj = Object.fromEntries(map.entries());
+    
+    "for of" not "for in"
+        of - Returns values.
+        in - Returns indexes.
+        - Since we are not working with an array, we are instead working with an object "in" won't work.
+
+    Getting a List of Keys
+        - Let's use "for of" and the "keys" method.
+        Ex.
+            for (let ingredients of recipe.keys()) {
+                console.log(ingredients);
+            }
+            // "butter", "eggs", "flour", ...
+        - Below is the code you can use to get every value in the map.
+        Ex.
+            for (let amount of cakeRecipe.values()) {
+                console.log(amount);
+            }
+            // "1/2", "2 large", "1-1/2 cups", ...
+        - Below is the code you can use to get every key value pair.
+        Ex.
+            for (let entry of cakeRecipe.entries()) {
+                console.log(entry);
+            }
+            // "butter", "1/2 cup", ...
