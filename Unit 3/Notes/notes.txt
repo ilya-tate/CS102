@@ -101,12 +101,12 @@ Objects:
         - Using this information correctly can be just as important as the values that are attatched to them.
 
     Forof
-    - For in gave us every index for the length of the object that we are looping through.
-    Ex.
-        for (row in input1) //0, 1, 2, 3, 4, 5, ...
-    - For of gives us the value insteadof the index.
-    Ex.
-        for (row of input1) // input[0], input[1], input[2], ...
+        - For in gave us every index for the length of the object that we are looping through.
+        Ex.
+            for (row in input1) //0, 1, 2, 3, 4, 5, ...
+        - For of gives us the value insteadof the index.
+        Ex.
+            for (row of input1) // input[0], input[1], input[2], ...
     
     Iterating Over a Map
         - There is a new loop that you can use now called "forof".
@@ -160,3 +160,34 @@ Objects:
                 console.log(entry);
             }
             // "butter", "1/2 cup", ...
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Sets:
+        - A set is an advanced array that will not let repeat values into it.
+        - This does not store "key:value" pairs, only single values which makes this perfect for arrays.
+        - To create a new set use.
+        Ex.
+            let set = new Set(iterableObject);
+
+    Set Methods
+        set.add(value); - This will add a new value to the set if it is not already present and then returns the set.
+        set.delete(value); - Removes the value and returns true or false if the value does not exist.
+        set.has(value); - True if the value exists or false if it does not exist.
+        set.clear(); - Removes everything from the set.
+        set.size; - Gets the amount of values in the set.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+JSON:
+        - JSON stands for JavaScript Object Notation
+        - This will convert any object into a more readable format for both the user and computer.
+        JSON.stringify() - Converts objects into a JSON format.
+        JSON.parse() - Parse has two parts, the JSON-string that you want to parse to an object tand an optional function that we can use as we loop through the string.
+
+    Point to Know
+        - Parse can work on any properly formatted string (think inputs from the projects).
+        - Passing an object to JSON and back is a great way to clone objects and break the association.
+        - Parse will break if you fo not have double quotes around you're work "", single quotes and backticks don't work.
+
+    
