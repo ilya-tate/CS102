@@ -205,5 +205,3 @@ JSON:
         - Parse can work on any properly formatted string (think inputs from the projects).
         - Passing an object to JSON and back is a great way to clone objects and break the association.
         - Parse will break if you fo not have double quotes around you're work "", single quotes and backticks don't work.
-
-    
