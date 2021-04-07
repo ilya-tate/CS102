@@ -160,3 +160,19 @@ Objects:
                 console.log(entry);
             }
             // "butter", "1/2 cup", ...
+
+    Getting a List of Values
+        - Velow is the cose you can use to get every value in the map.
+        Ex.
+            for (let amount of cakeRecipt.values()) {
+                console.log(amount);
+            }
+        // 1/2, 2 large, 1-1/2 cups, ...
+    
+    Getting a List of Properties
+        - Below is the code you use to get every key value pair.
+        Ex.
+            for (let entry of cakeRecipt.entries()) {
+                console.log(entry);
+            }
+        // butter, 1/2 cup, ...
