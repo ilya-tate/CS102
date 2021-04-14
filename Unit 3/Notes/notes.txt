@@ -201,7 +201,69 @@ JSON:
         JSON.stringify() - Converts objects into a JSON format.
         JSON.parse() - Parse has two parts, the JSON-string that you want to parse to an object tand an optional function that we can use as we loop through the string.
 
-    Point to Know
+    Points to Know
         - Parse can work on any properly formatted string (think inputs from the projects).
         - Passing an object to JSON and back is a great way to clone objects and break the association.
         - Parse will break if you fo not have double quotes around you're work "", single quotes and backticks don't work.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Destructuring Objects:
+        - Destucturing is the act of breaking an object into all of its individual properties.
+        - This is msot useful when we get into React in the next unit.
+
+    Breaking Down an Array
+        - If we wanted to break down the following array we would need to manually create a list of arrays to hold all of the values.
+        Ex.
+            let scores = [70, 80, 90, 100];
+            let a = 70;
+            let b - 80;
+            let c = 90;
+            let d = 100;
+
+    Shorthand
+        - ES6 added a new short hand to help with destructuring.
+        - WE are able to use an array of variable names to pass in a group of values.
+        - You can decalre all of your varibles beforehand and assign them to each of the array items.
+        Ex.
+            let a, b, c;
+            [a, b, c] = [10, 20, 30];
+        - You can add the let to the array of variables instead of doing all of the variables twice.
+        Ex.
+            let [a, b, c] = [10, 20, 30];
+        - For this next part we are going to assume that we aworking on a real project and not just creating a random array to deconstruct;
+
+    Destructuring Objects
+        - Destructuring objects is not very useful but destructuring objects is EXTREMELY useful.
+        - The variables you are using to hold the object keys need to be the same unlike arrays.
+        - We are about to break up the object into the same name.
+        Ex.
+            let obj = {
+                names: {
+                    ...
+                }
+            }
+            const { names } = obj;
+    
+    The "rest" Operator
+        - The "rest" operator is the "..." the some of you have already seen.
+        - We can use this on an iterable object to go though all of the items in that list.
+        - This is best used to get the "rest" of the array or object.
+
+    Destructuring the "rest"
+        - You can take out the parts that you want to put the rest of the object into a different object for safe keeping.
+        Ex.
+            const { grades, ...smallerObj } = obj;
+            console.log(grades);
+            console.log(smallerObj);
+    
+    Assigning New Variable Names
+        - If you want to assign new names to that destructured objects you can do that with a colon.
+        Ex.
+            let obj = {
+                names: {
+                    ...
+                }
+            }
+            const { names: n } = obj;
+            console.log(n);
