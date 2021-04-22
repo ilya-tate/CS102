@@ -1,0 +1,159 @@
+REACT
+
+    - React is a front-end library that many people use as a makeshift framework.
+    - React does not work in a browser and needs to run on a live server since it is always live.
+    - That is why the site it's called React, because it constantly reacts to the site and changes it.
+    - React creates "apps" from functions and react elements, not pages and sites.
+    - We have created HTML elements using JS before but these are NOT HTML elements, they are react elements.
+  
+  A React Element
+    - A react element has 4 parts, the tag, name, and properties that ar etied to it, and the content inside of it.
+    - The content can get a little convoluted whe nwe want to create embedded elements.
+    - This is the basic layout of a react elements.
+    Ex.
+      React.createElement (
+        'tag name',
+        ( property: 'value' ),
+        'content'
+      )
+    Ex.
+      React.createElement (
+        'p',
+        ( id: 'HW' ),
+        'Hello World
+      )
+
+  Important Notes
+    - Properties are the same "'id'='id'" in both html and react.
+    - The only exception is classes, since classes are already defined in js, we instead have to say "className".
+    - If there is nothing in that section, you write "null".
+    Ex.
+      React.createElement (
+        'h2',
+        null,
+        'testing'
+      )
+      React.createElement (
+        'div',
+        ( className: 'container' ),
+        null
+      )
+  
+  ReactDOM
+    - ReactDOM is how the computer turns your react elements into actual readable HTML.
+    - It will render the react element in real time.
+
+  ReactDOM.render()
+    - "render" is the method that we use to translate the information into HTML.
+    - The second component in "render" is where it will be placed in the HTMLL.
+    Ex.
+      ReactDOM.render(
+        React.createElement('h2', null, 'Hello World),
+        document.getElementById('root')
+      );
+  
+  Better Render
+    - This is the more common way to do rendering.
+    Ex.
+      let header = React.createElement('h2', null, 'Hello World);
+      ReactDOM.render(header, document.getElementById('root'));
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Babel / JSX:
+
+    - Babel is another language library that compiles down to JS.
+    - The main advantage of babel is ability to code HTML elements in JS.
+    - Babel actually lets you use ES7 and compiles it down to ES6 since every browser now has support for ES6.
+    - The main use of babel currently is to allow developers to write HTML code in JS files.
+    - This saves us a lot of time while trying to code in react (or any other fron end library / framework).
+
+  Using Babel
+    - Like jQuery, Babel needs to be linked to the project and compiled as the code is running.
+    - We are going to use Node Modules from now on (no more CDNs).
+  
+  Why Babel
+    - Babel deals with compatibility between browsers, but that isn't the real reason we use babel.
+    - We use it for React.js.
+
+  JSX
+    - Babel compiles regular HTML elements into a readable format for the computer as we saw.
+    - Native JS does not allow you to use HTML, but JSX does (JavaScript Expression).
+    - Using these 2 libraries in conjunction we can make react into a really easy to use framework.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ReactJS:
+
+  React
+    - In order to start creating a new react app we are going to us an auto generator.
+    - This is the first and only time I will shows you the shortcut without showing you the long way.
+  
+  React Installation
+    - Please install the react create library.
+    Ex.
+      npm i create-react-app
+
+  Creating a React App
+    - You are going to need to use "npx" which stands for "node packet executable".
+
+  "public" and "src"Folders
+    - The public folder is the only thing that is visible to the users when they are visiting your site.
+    - "src" is the source folder and is used behind the scenes.
+    - IMPORTANT -- Files in your source folder CANNOT reach any file outside of the source folder.
+
+  "index.html"
+    - This is still the first file that is loaded when you got the site, because of how web browsers owrk we can't skip this step.
+    - IMPORTANT DIFFERENCE -- You do not link any css or js for thsi one.
+
+  "index.js"
+    - This is the rendering file for your index.html.
+    - As we talked about before we are n't able to use react elements in the HTML so this JS file compiles all of the react elements into a single react render.
+
+  "robots.txt"
+    - This is a file that tells seach engines and other web scrapers which files to ignore.
+    - You don't want users being brough to your work in progress page or your file directory.
+
+  CSS Files
+    - You are able to use SASS for your work on react (and I would highly recommend you doing so).
+    - But you need to remember to change the directory that it is saved to.
+    - If you are saving it to the root directory your src folder won't be able to acccess it.
+
+  "reportWebVitals.js"
+    - We aren't going to deal with this file in year 1, but it is built in way to monitor your traffic.
+
+  "App.js"
+    - This is the heart of your program.
+    - ALl of your components will be fed through this file into your app that you are creating.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Components:
+
+    - A react app is build of components that are stacked together.
+    - Once a component is created it can be used over and over in a variety of ways without writing over and over.
+    - This also allows use to easily create conditional statements taht will change based on the situation.
+    - Components are made up of several improtant parts that you need to know the vocabulary for.
+    - There are several ways to create components, you can use classes or functions and you can render or export.
+
+  React Hooks
+    - React Hooks are functions that use the state to create features and components.
+    useState - Retruns the state of the component and a function to update it.
+    useEffect - Performs effects in function components.
+
+  States
+    - When you want to use data or information in our code that is stored in something called a state.
+    - A state is an object that is placed at the top of the component function.
+
+  Functions
+    - After the states are added the very next thing in your component should be any required functions.
+    - Nothing special here, they are created and used just like normal js functions.
+
+  Return
+    - Next is the return statement.
+    - This will hold all of the react element work that you will be using JSX and Babel.
+    - REMEMBER this looks like HTML, but is actually JSX, or js acting like HTML.
+  
+  Export
+    - The last piece of any component is exporting.
+    - The is how the app knows what you are trying to render to the page and should just be exporting the react hook (component function).
