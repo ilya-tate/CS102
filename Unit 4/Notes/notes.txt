@@ -157,3 +157,18 @@ Components:
   Export
     - The last piece of any component is exporting.
     - The is how the app knows what you are trying to render to the page and should just be exporting the react hook (component function).
+
+  Props (Properties)
+    - Props are how you send information up the chain to interact with your components.
+    - These are not limited to keywords an can be ANYTHING you want, Text, Color, Onamonapia, etc.
+  
+  Calling a Prop
+    - Now that there is a property though we can take that in as a prop.
+    - Please go to your Header.sj and add the props keyword to the hook.
+
+  Using a Prop
+    - Props are passes through as an object meaning that we need to call their keys to retrieve the values.
+
+  Default Props
+    - If there is a component being used often, it might be best to add a default value so don't have to type it every time.
+    - In the hook you can add default vlaues as an object.

@@ -7,3 +7,19 @@
   padding: 30px;
   border-radius: 5;
 }
+
+// Header component styles
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  button {
+    height: 50px;
+    width: 100px;
+    background-color: red;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 15px;
+  }
+}

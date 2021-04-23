@@ -5,6 +5,26 @@
   min-height: 300px;
   border: 1px solid steelblue;
   padding: 30px;
-  border-radius: 5px;
+  border-radius: 5;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.header button {
+  height: 50px;
+  width: 100px;
+  background-color: red;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 15px;
 }
 /*# sourceMappingURL=style.css.map */
