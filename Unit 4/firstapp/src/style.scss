@@ -6,6 +6,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 // Body styles
@@ -26,10 +27,11 @@
   align-content: center;
 
   button {
-    height: 50px;
-    width: 100px;
+    height: 30px;
+    width: 70px;
     background-color: red;
-    font-size: 1.5rem;
+    color: white;
+    font-size: 1.1rem;
     border: none;
     border-radius: 15px;
   }
@@ -46,5 +48,45 @@
 
   &.remind {
     border-left: solid 5px green;
+  }
+}
+
+// AddTask styles
+.taskForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px 0;
+  width: 100%;
+  font-size: 1.35rem;
+
+  .formInput {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+
+  .formCheck {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    margin: 5px 0;
+  }
+
+  .btn {
+    height: 30px;
+    width: 70%;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+  }
+
+  input {
+    font-size: 1.1rem;
   }
 }

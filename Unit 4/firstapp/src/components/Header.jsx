@@ -1,16 +1,17 @@
 import Button from './Button';
+import { useState } from 'react';
 
-const Header = ({ propColor, title }) => {  
-  const onClick = () => {
-    console.log('click');
-  }
-
+const Header = ({ color: propColor, title, onShowAdd, showAdd }) => {
   return (
     <header className="header">
       <h2 style={ { color: propColor } }>
         { title }
       </h2>
-      <Button color="red" text="Open" onClick={ onClick } />
+      <Button
+        color={ showAdd ? 'red' : 'green' }
+        text={ showAdd ? 'Close' : 'Open' }
+        onClick={ onShowAdd }
+      />
     </header>
   );
 }
