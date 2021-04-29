@@ -1,6 +1,8 @@
-import { FaTimes } from 'react-icons/fa';
+import { FaTimes, FaRegEdit } from 'react-icons/fa';
 
-const Task = ({ task, onDelete, onToggle, key }) => {
+const Task = ({ task, onDelete, onToggle, onEdit, key }) => {
+  
+  
   return (
     <div
       onDoubleClick={ () => onToggle(task.id) }
@@ -12,6 +14,10 @@ const Task = ({ task, onDelete, onToggle, key }) => {
         <p>{ task.day }</p>
       </div>
       <div className="right">
+        <FaRegEdit
+          onClick={ () => onEdit(task)}
+          style={ { color: 'grey', cursor: 'pointer' } }
+        />
         <FaTimes
           onClick={ () => onDelete(task.id) }
           style={ { color: 'red', cursor: 'pointer' } }

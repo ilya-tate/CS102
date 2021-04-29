@@ -4,6 +4,7 @@ import Tasks from './components/Tasks.jsx';
 import { useState } from 'react';
 
 function App() {
+  let isEdiiting = false;
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([
     {
@@ -38,8 +39,21 @@ function App() {
     );
   }
 
-  const onAdd = task => {
-    setTasks([...tasks, task]);
+  const onAdd = task => 
+    isEditing ? 'something' : setTasks([...tasks, task]);  
+  }
+
+  const onEdit = task => {
+    setShowAddTask(true);
+    console.log(task);
+    setTimeout(() => {
+      const text = document.getElementById('text');
+      const day = document.getElementById('day');
+      const remindBox = document.getElementById('reminder');
+      text.value = task.text;
+      day.value = task.day;
+      task.reminder ? remindBox.checked = true : remindBox.checked = false;
+    }, 100);
   }
 
   return (
@@ -49,7 +63,7 @@ function App() {
         showAdd = { showAddTask }
       />
       { showAddTask ? <AddTask onAdd={ onAdd } /> : '' }
-      <Tasks tasks={ tasks } onDelete={ onDelete } onToggle={ toggleReminder } />
+      <Tasks tasks={ tasks } onDelete={ onDelete } onToggle={ toggleReminder } onEdit={ onEdit } />
     </div>
   );
 }

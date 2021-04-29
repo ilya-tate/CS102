@@ -13,7 +13,7 @@ const AddTask = ({ onAdd }) => {
       return alert('Please type task in.');
     }
     if (!day) {
-      return alert('Please type date/time in.');
+      return alert('Please type date / time in.');
     }
 
     onAdd({ text, day, reminder });
