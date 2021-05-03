@@ -1,6 +1,6 @@
 import { FaTimes, FaRegEdit } from 'react-icons/fa';
 
-const Task = ({ task, onDelete, onToggle, onEdit, key }) => {
+const Task = ({ task, onDelete, onToggle, toggleEdit }) => {
   
   
   return (
@@ -15,8 +15,8 @@ const Task = ({ task, onDelete, onToggle, onEdit, key }) => {
       </div>
       <div className="right">
         <FaRegEdit
-          onClick={ () => onEdit(task)}
-          style={ { color: 'grey', cursor: 'pointer' } }
+          onClick={ () => toggleEdit(task)}
+          style={ { color: 'green', cursor: 'pointer' } }
         />
         <FaTimes
           onClick={ () => onDelete(task.id) }
